@@ -62,5 +62,16 @@
         "description": "test s opisom, botnet"
       }
     ]
+  },
+  {
+    "id": 1761075173203,
+    "submittedAt": "2025-10-21T19:32:53.203Z",
+    "clientIP": "93.137.96.252",
+    "items": [
+      {
+        "value": "8[.]8[.]8[.]8",
+        "type": "ip"
+      }
+    ]
   }
 ]
