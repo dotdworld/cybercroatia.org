@@ -1,5 +1,8 @@
-document.getElementById("uploadForm")?.addEventListener("submit", function(e) {
+const WORKER_ENDPOINT = "https://cybercroatia-upload.leonoramilisa.workers.dev/";
+
+document.getElementById("uploadForm")?.addEventListener("submit", async function(e) {
   e.preventDefault();
+  
   const text = document.getElementById("iocText").value.trim();
   const file = document.getElementById("iocFile")?.files[0];
   
@@ -8,11 +11,34 @@ document.getElementById("uploadForm")?.addEventListener("submit", function(e) {
     return;
   }
 
+  let rawData = text;
+
   if (file) {
-    alert(`Datoteka "${file.name}" je spremna za slanje (demo način).`);
-  } else {
-    alert("Uneseni IOC/IOA podaci su zaprimljeni (demo način).");
+    rawData = await file.text();
   }
 
-  document.getElementById("uploadForm").reset();
+  // parsiranje IOC/IOA redaka
+  const items = rawData
+    .split(/\r?\n|,|;/)
+    .map(x => x.trim())
+    .filter(Boolean)
+    .map(x => ({ value: x }));
+
+  try {
+    const response = await fetch(WORKER_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ items })
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(errorText);
+    }
+
+    alert("Podaci su uspješno poslani i pohranjeni na GitHub.");
+    document.getElementById("uploadForm").reset();
+  } catch (error) {
+    alert("Došlo je do pogreške pri slanju podataka: " + error.message);
+  }
 });
