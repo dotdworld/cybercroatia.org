@@ -23,40 +23,45 @@
 
   <!-- Navigacija -->
   <header class="border-b border-gray-800">
-    <nav class="container mx-auto flex justify-between items-center p-4">
+    <nav class="container mx-auto flex flex-wrap justify-between items-center p-4">
       <a href="index.html" class="text-2xl font-bold text-blue-500">CyberCroatia</a>
-      <ul class="flex space-x-6 text-sm">
-        <li><a href="index.html" class="hover:text-blue-400">Home</a></li>
-        <li><a href="upload.html" class="hover:text-blue-400">Upload</a></li>
-        <li><a href="browse.html" class="hover:text-blue-400">Browse</a></li>
-        <li><a href="about.html" class="hover:text-blue-400">About</a></li>
-        <li><a href="contact.html" class="text-blue-400">Contact</a></li>
+      <button id="menuToggle" class="block md:hidden text-gray-300 focus:outline-none">☰</button>
+      <ul id="menu" class="hidden md:flex space-x-6 text-sm w-full md:w-auto mt-4 md:mt-0">
+        <li><a href="index.html" class="hover:text-blue-400 block py-2 md:py-0">Home</a></li>
+        <li><a href="upload.html" class="hover:text-blue-400 block py-2 md:py-0">Upload</a></li>
+        <li><a href="browse.html" class="hover:text-blue-400 block py-2 md:py-0">Browse</a></li>
+        <li><a href="about.html" class="hover:text-blue-400 block py-2 md:py-0">About</a></li>
+        <li><a href="contact.html" class="text-blue-400 block py-2 md:py-0">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- Kontakt sekcija -->
-  <section class="container mx-auto py-24 px-4 text-center max-w-2xl">
-    <h1 class="text-4xl font-bold mb-6">Kontakt</h1>
-    <p class="text-gray-400 mb-8">
+  <section class="container mx-auto py-20 px-6 sm:px-8 md:px-12 text-center max-w-2xl">
+    <h1 class="text-4xl sm:text-5xl font-bold mb-6">Kontakt</h1>
+    <p class="text-gray-400 mb-10 text-justify">
       Za sve upite, prijedloge ili suradnju u vezi s projektom
       <span class="text-gray-200 font-semibold">CyberCroatia.org</span>,
       možeš mi se obratiti putem e-maila ili posjetiti moju glavnu web stranicu.
     </p>
 
-    <div class="bg-gray-900 border border-gray-800 rounded-xl p-8 space-y-4">
-      <p class="text-gray-300">
-        📧 E-mail:
-        <a href="mailto:info@cybercroatia.org" class="text-blue-500 hover:underline">info@cybercroatia.org</a>
+    <div class="bg-gray-900 border border-gray-800 rounded-2xl p-8 space-y-4 text-left sm:text-center">
+      <p class="text-gray-300 text-justify sm:text-center">
+        📧 <span class="font-semibold">E-mail:</span><br />
+        <a href="mailto:info@cybercroatia.org" class="text-blue-500 hover:underline break-all">
+          info@cybercroatia.org
+        </a>
       </p>
-      <p class="text-gray-300">
-        🌐 Web:
-        <a href="https://www.leonoramilisa.com" target="_blank" class="text-blue-500 hover:underline">www.leonoramilisa.com</a>
+      <p class="text-gray-300 text-justify sm:text-center">
+        🌐 <span class="font-semibold">Web:</span><br />
+        <a href="https://www.leonoramilisa.com" target="_blank" class="text-blue-500 hover:underline break-all">
+          www.leonoramilisa.com
+        </a>
       </p>
     </div>
 
     <!-- Back to Homepage -->
-    <div class="mt-8">
+    <div class="mt-12 text-center">
       <a href="index.html" class="inline-block bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold">
         Back to Homepage
       </a>
@@ -64,10 +69,19 @@
   </section>
 
   <!-- Footer -->
-  <footer class="border-t border-gray-800 text-center text-gray-500 py-6 text-sm">
-    © 2025 CyberCroatia.org · <a href="https://www.leonoramilisa.com" target="_blank" class="hover:text-blue-400">leonoramilisa.com</a>
+  <footer class="border-t border-gray-800 text-center text-gray-500 py-6 text-sm px-4">
+    © 2025 CyberCroatia.org · 
+    <a href="https://www.leonoramilisa.com" target="_blank" class="hover:text-blue-400">leonoramilisa.com</a>
   </footer>
+
+  <!-- Skripta za mobilni meni -->
+  <script>
+    const menuBtn = document.getElementById("menuToggle");
+    const menu = document.getElementById("menu");
+    menuBtn?.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+  </script>
 
 </body>
 </html>
-
