@@ -17,6 +17,7 @@
   <meta name="twitter:card" content="summary_large_image">
 
   <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="script.js"></script>
 </head>
 
 <body class="bg-gray-950 text-gray-100 font-sans">
@@ -45,22 +46,21 @@
     <a href="upload.html" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold">Pošalji IOC/IOA</a>
   </section>
 
-  <!-- Zadnji dodani IOC -->
+  <!-- Zadnji dodani IOC (dinamički) -->
   <section class="container mx-auto px-4 py-16">
     <h2 class="text-2xl font-semibold mb-6">Zadnji dodani IOC</h2>
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
-        <p class="font-mono text-sm text-blue-400">8.8.8.8</p>
-        <p class="text-gray-400 text-sm">Malicious IP – Scanning activity</p>
+
+    <!-- Dinamički popis – puni ga script.js -->
+    <div id="recentIoc" class="grid md:grid-cols-3 gap-6">
+      <div id="recentIocFallback"
+           class="bg-gray-900 p-6 rounded-xl border border-gray-800 text-gray-500 col-span-full">
+        Učitavam najnovije indikatore…
       </div>
-      <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
-        <p class="font-mono text-sm text-blue-400">hxxp://bad-domain.ru</p>
-        <p class="text-gray-400 text-sm">Phishing campaign detected</p>
-      </div>
-      <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
-        <p class="font-mono text-sm text-blue-400">4f5a2b9c123d...</p>
-        <p class="text-gray-400 text-sm">Suspicious file hash</p>
-      </div>
+    </div>
+
+    <!-- Link na cijeli pregled -->
+    <div class="mt-8">
+      <a href="browse.html" class="text-blue-400 hover:text-blue-300 text-sm underline">Pogledaj sve →</a>
     </div>
   </section>
 
