@@ -31,5 +31,24 @@
         "type": "md5"
       }
     ]
+  },
+  {
+    "id": 1761072514372,
+    "submittedAt": "2025-10-21T18:48:34.372Z",
+    "clientIP": "86.33.82.81",
+    "items": [
+      {
+        "value": "172[.]67[.]170[.]162",
+        "type": "ip"
+      },
+      {
+        "value": "8f80cf878a3e05c06c9d03646443e41d",
+        "type": "md5"
+      },
+      {
+        "value": "hxxp://5-253-86-21[.]cprapid[.]com/curl.sh",
+        "type": "url"
+      }
+    ]
   }
 ]
