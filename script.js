@@ -104,6 +104,83 @@ async function loadRecentIoc() {
   }
 }
 
+// ====== BROWSE: učitaj sve i prikaži + brza pretraga ======
+async function loadBrowse() {
+  const list = document.getElementById("browseList");
+  if (!list) return; // nije browse.html
+
+  const fallback = document.getElementById("browseFallback");
+  const q = document.getElementById("browseSearch");
+  const typeSel = document.getElementById("browseType");
+
+  let all = []; // {value,type,submittedAt}
+
+  try {
+    const resp = await fetch("data/ioc.json?t=" + Date.now(), { cache: "no-store" });
+    if (!resp.ok) throw new Error("Ne mogu učitati ioc.json");
+    const data = await resp.json();
+
+    const batches = (Array.isArray(data) ? data : [])
+      .slice()
+      .sort((a,b)=>new Date(b.submittedAt||0)-new Date(a.submittedAt||0));
+
+    for (const b of batches) {
+      for (const it of (b.items || [])) {
+        all.push({
+          value: String(it.value || "").slice(0, 500),
+          type: it.type || "text",
+          submittedAt: b.submittedAt || b.timestamp || null
+        });
+      }
+    }
+
+    render(all);
+
+    q?.addEventListener("input", () => render(all));
+    typeSel?.addEventListener("change", () => render(all));
+
+  } catch (e) {
+    if (fallback) {
+      fallback.textContent = "Greška pri učitavanju.";
+      fallback.classList.add("text-red-400");
+    }
+    console.error(e);
+  }
+
+  function render(items) {
+    const query = (q?.value || "").toLowerCase().trim();
+    const typ = (typeSel?.value || "").toLowerCase().trim();
+
+    const filtered = items.filter(x => {
+      const matchQ = !query || x.value.toLowerCase().includes(query) || (x.type||"").toLowerCase().includes(query);
+      const matchT = !typ || (x.type||"").toLowerCase() === typ;
+      return matchQ && matchT;
+    });
+
+    if (filtered.length === 0) {
+      list.innerHTML = `
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-6 text-gray-500 col-span-full">
+          Nema rezultata za zadane filtre.
+        </div>`;
+      return;
+    }
+
+    list.innerHTML = filtered.slice(0, 60).map(item => {
+      const when = item.submittedAt ? formatTime(item.submittedAt) : "";
+      const label = item.type ? item.type.toUpperCase() : "";
+      return `
+        <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-xs text-gray-500">${when}</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-gray-800 text-gray-300 border border-gray-700">${label}</span>
+          </div>
+          <p class="font-mono text-sm text-blue-400 break-all">${escapeHTML(item.value)}</p>
+        </div>
+      `;
+    }).join("");
+  }
+}
+
 // ====== POMOĆNE FUNKCIJE ======
 function formatTime(iso) {
   try {
@@ -124,3 +201,4 @@ function escapeHTML(s) {
 
 // ====== INIT ======
 loadRecentIoc();
+loadBrowse();
