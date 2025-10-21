@@ -84,5 +84,20 @@
         "type": "domain"
       }
     ]
+  },
+  {
+    "id": 1761078435807,
+    "submittedAt": "2025-10-21T20:27:15.807Z",
+    "clientIP": "86.33.36.80",
+    "items": [
+      {
+        "value": "' OR 1=1",
+        "type": "text"
+      },
+      {
+        "value": "--",
+        "type": "text"
+      }
+    ]
   }
 ]
