@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About - CyberCroatia</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Open Graph (opcionalno, ako želiš i na about stranici) -->
+  <meta property="og:title" content="CyberCroatia – Zajednica za cyber prijetnje">
+  <meta property="og:description" content="Svatko može doprinijeti sigurnosti: pošalji svježe IOC/IOA indikatore i ojačaj digitalnu obranu.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cybercroatia.org/about.html">
+  <meta property="og:image" content="https://cybercroatia.org/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="bg-gray-950 text-gray-100 font-sans">
+
+  <!-- Navigacija -->
+  <header class="border-b border-gray-800">
+    <nav class="container mx-auto flex justify-between items-center p-4">
+      <a href="index.html" class="text-2xl font-bold text-blue-500">CyberCroatia</a>
+      <ul class="flex space-x-6 text-sm">
+        <li><a href="index.html" class="hover:text-blue-400">Home</a></li>
+        <li><a href="upload.html" class="hover:text-blue-400">Upload</a></li>
+        <li><a href="browse.html" class="hover:text-blue-400">Browse</a></li>
+        <li><a href="about.html" class="text-blue-400">About</a></li>
+        <li><a href="contact.html" class="hover:text-blue-400">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero / Intro -->
+  <section class="container mx-auto py-20 px-4 text-center max-w-3xl">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">O CyberCroatia</h1>
+    <p class="text-gray-400">
+      CyberCroatia je zajednica koja omogućuje da <span class="text-gray-200 font-semibold">svatko</span> – od poslovnih ljudi do
+      tehničkih timova – može jednostavno podijeliti <span class="text-gray-200 font-semibold">svježe indikatore kompromitacije (IOC)</span> i
+      <span class="text-gray-200 font-semibold">indikatore aktivnosti (IOA)</span>. Zajedno gradimo bržu i snažniju obranu.
+    </p>
+  </section>
+
+  <!-- Misija -->
+  <section class="container mx-auto px-4 py-10 max-w-4xl">
+    <div class="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+      <h2 class="text-2xl font-semibold mb-3">Naša misija</h2>
+      <p class="text-gray-300">
+        Ubrzati razmjenu provjerljivih prijetnji i olakšati sudjelovanje svima koji se susretnu s napadima, sumnjivim
+        domenama, IP adresama, hash vrijednostima ili zlonamjernim URL-ovima — bez komplikacija, i bez čekanja.
+      </p>
+    </div>
+  </section>
+
+  <!-- Kako funkcionira -->
+  <section class="container mx-auto px-4 py-10 max-w-5xl">
+    <h2 class="text-2xl font-semibold mb-6">Kako funkcionira</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-gray-900 border border-gray-800 rounded-xl p-6">
+        <div class="text-sm text-gray-400 mb-2">Korak 1</div>
+        <h3 class="font-semibold mb-2">Pošalji indikatore</h3>
+        <p class="text-gray-300 text-sm">Uploadaj IOC/IOA pojedinačno ili u bulk-u (CSV/JSON/TXT). Defang preporučen (npr. 1[.]2[.]3[.]4, hxxp://…).</p>
+      </div>
+      <div class="bg-gray-900 border border-gray-800 rounded-xl p-6">
+        <div class="text-sm text-gray-400 mb-2">Korak 2</div>
+        <h3 class="font-semibold mb-2">Automatska obrada</h3>
+        <p class="text-gray-300 text-sm">Sustav validira i sprema unose u zajednički repozitorij. Privatni podaci se ne prikupljaju.</p>
+      </div>
+      <div class="bg-gray-900 border border-gray-800 rounded-xl p-6">
+        <div class="text-sm text-gray-400 mb-2">Korak 3</div>
+        <h3 class="font-semibold mb-2">Zajednički pregled</h3>
+        <p class="text-gray-300 text-sm">Svježi indikatori su vidljivi na “Browse” stranici i spremni za obranu i detekciju.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Što se može poslati -->
+  <section class="container mx-auto px-4 py-10 max-w-5xl">
+    <h2 class="text-2xl font-semibold mb-4">Što možeš poslati</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-gray-900 border border-gray-800 rounded-xl p-6">
+        <h3 class="font-semibold mb-2">IOC</h3>
+        <ul class="list-disc list-inside text-gray-300 text-sm space-y-1">
+          <li>IP adrese i domene (defang oblik preporučen)</li>
+          <li>URL-ovi (hxxp/hxxps)</li>
+          <li>Hash vrijednosti (MD5/SHA1/SHA256)</li>
+          <li>e-mail pošiljatelji/“reply-to” (bez osobnih podataka)</li>
+        </ul>
+      </div>
+      <div class="bg-gray-900 border border-gray-800 rounded-xl p-6">
+        <h3 class="font-semibold mb-2">IOA</h3>
+        <ul class="list-disc list-inside text-gray-300 text-sm space-y-1">
+          <li>Uzorci ponašanja (TTP-ovi, MITRE navodi)</li>
+          <li>Artefakti napada (npr. command lines, procesi)</li>
+          <li>Indikacije phishing kampanja (predlošci, lure teme)</li>
+          <li>Opis sumnjivih aktivnosti (sažeto, bez PII)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Načela -->
+  <section class="container mx-auto px-4 py-10 max-w-5xl">
+    <h2 class="text-2xl font-semibold mb-4">Načela zajednice</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-gray-900 border border-gray-800 rounded-xl p-6">
+        <h3 class="font-semibold mb-2">Otvorenost</h3>
+        <p class="text-gray-300 text-sm">Podaci o prijetnjama su korisni kad su dostupni — zato ih činimo preglednima i ponovo upotrebljivima.</p>
+      </div>
+      <div class="bg-gray-900 border border-gray-800 rounded-xl p-6">
+        <h3 class="font-semibold mb-2">Sigurnost & privatnost</h3>
+        <p class="text-gray-300 text-sm">Ne prikupljamo PII; molimo da ne dijeliš osjetljive interne podatke. Defang preporučujemo radi sigurnijeg pregleda.</p>
+      </div>
+      <div class="bg-gray-900 border border-gray-800 rounded-xl p-6">
+        <h3 class="font-semibold mb-2">Kvaliteta</h3>
+        <p class="text-gray-300 text-sm">Preferiramo provjerljive, jasne indikatore. Ako sumnjaš — označi kao takvo u opisu.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="container mx-auto px-4 py-12 text-center">
+    <a href="upload.html" class="inline-block bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold">
+      Pošalji svježe indikatore
+    </a>
+    <p class="text-gray-400 text-sm mt-3">Tvoj doprinos može pomoći nekome spriječiti napad.</p>
+  </section>
+
+  <!-- Back to Homepage -->
+  <section class="container mx-auto px-4 pb-20 text-center">
+    <a href="index.html" class="inline-block bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold">
+      Back to Homepage
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-800 text-center text-gray-500 py-6 text-sm">
+    © 2025 CyberCroatia.org · <a href="contact.html" class="hover:text-blue-400">Kontakt</a> ·
+    <a href="https://www.leonoramilisa.com" target="_blank" class="hover:text-blue-400">leonoramilisa.com</a>
+  </footer>
+
+</body>
+</html>
