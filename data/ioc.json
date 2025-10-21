@@ -73,5 +73,16 @@
         "type": "domain"
       }
     ]
+  },
+  {
+    "id": 1761078290223,
+    "submittedAt": "2025-10-21T20:24:50.223Z",
+    "clientIP": "86.33.36.80",
+    "items": [
+      {
+        "value": "o365[.]com",
+        "type": "domain"
+      }
+    ]
   }
 ]
