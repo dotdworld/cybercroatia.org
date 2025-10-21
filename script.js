@@ -35,7 +35,7 @@ document.getElementById("uploadForm")?.addEventListener("submit", async function
       throw new Error(errorText);
     }
 
-    alert("Podaci su uspješno poslani i pohranjeni na GitHub.");
+    alert("Podaci su uspješno poslani i pohranjeni.");
     document.getElementById("uploadForm").reset();
   } catch (error) {
     alert("Došlo je do pogreške pri slanju podataka: " + error.message);
