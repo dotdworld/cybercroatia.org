@@ -50,5 +50,17 @@
         "type": "url"
       }
     ]
+  },
+  {
+    "id": 1761074524911,
+    "submittedAt": "2025-10-21T19:22:04.911Z",
+    "clientIP": "86.33.82.81",
+    "items": [
+      {
+        "value": "hxxp://5-253-86-21[.]cprapid[.]com/ftpget.sh",
+        "type": "url",
+        "description": "test s opisom, botnet"
+      }
+    ]
   }
 ]
