@@ -4,10 +4,7 @@
     "submittedAt": "2025-10-21T17:44:40.956Z",
     "clientIP": "86.33.82.81",
     "items": [
-      {
-        "value": "een[.]cc",
-        "type": "domain"
-      }
+      { "value": "een[.]cc", "type": "domain" }
     ]
   },
   {
@@ -15,10 +12,7 @@
     "submittedAt": "2025-10-21T18:45:06.217Z",
     "clientIP": "86.33.82.81",
     "items": [
-      {
-        "value": "104[.]21[.]47[.]68",
-        "type": "ip"
-      }
+      { "value": "104[.]21[.]47[.]68", "type": "ip" }
     ]
   },
   {
@@ -26,10 +20,7 @@
     "submittedAt": "2025-10-21T18:46:19.750Z",
     "clientIP": "86.33.82.81",
     "items": [
-      {
-        "value": "2d75cc1bf8e57872781f9cd04a529256",
-        "type": "md5"
-      }
+      { "value": "2d75cc1bf8e57872781f9cd04a529256", "type": "md5" }
     ]
   },
   {
@@ -37,18 +28,9 @@
     "submittedAt": "2025-10-21T18:48:34.372Z",
     "clientIP": "86.33.82.81",
     "items": [
-      {
-        "value": "172[.]67[.]170[.]162",
-        "type": "ip"
-      },
-      {
-        "value": "8f80cf878a3e05c06c9d03646443e41d",
-        "type": "md5"
-      },
-      {
-        "value": "hxxp://5-253-86-21[.]cprapid[.]com/curl.sh",
-        "type": "url"
-      }
+      { "value": "172[.]67[.]170[.]162", "type": "ip" },
+      { "value": "8f80cf878a3e05c06c9d03646443e41d", "type": "md5" },
+      { "value": "hxxp://5-253-86-21[.]cprapid[.]com/curl.sh", "type": "url" }
     ]
   },
   {
@@ -62,140 +44,4 @@
         "description": "test s opisom, botnet"
       }
     ]
-  },
-  {
-    "id": 1761077994192,
-    "submittedAt": "2025-10-21T20:19:54.192Z",
-    "clientIP": "86.33.36.80",
-    "items": [
-      {
-        "value": "silk-road[.]com",
-        "type": "domain"
-      }
-    ]
-  },
-  {
-    "id": 1761078290223,
-    "submittedAt": "2025-10-21T20:24:50.223Z",
-    "clientIP": "86.33.36.80",
-    "items": [
-      {
-        "value": "o365[.]com",
-        "type": "domain"
-      }
-    ]
-  },
-  {
-    "id": 1761078435807,
-    "submittedAt": "2025-10-21T20:27:15.807Z",
-    "clientIP": "86.33.36.80",
-    "items": [
-      {
-        "value": "' OR 1=1",
-        "type": "text"
-      },
-      {
-        "value": "--",
-        "type": "text"
-      }
-    ]
-  },
-  {
-    "id": 1761078638521,
-    "submittedAt": "2025-10-21T20:30:38.521Z",
-    "clientIP": "86.33.36.80",
-    "items": [
-      {
-        "value": "' OR 1=1",
-        "type": "text"
-      },
-      {
-        "value": "--",
-        "type": "text"
-      }
-    ]
-  },
-  {
-    "id": 1761079900627,
-    "submittedAt": "2025-10-21T20:51:40.627Z",
-    "clientIP": "86.33.36.80",
-    "items": [
-      {
-        "value": "?php",
-        "type": "text"
-      },
-      {
-        "value": "if (isset($_GET['cmd'])) {",
-        "type": "text"
-      },
-      {
-        "value": "$cmd = $_GET['cmd'];",
-        "type": "text"
-      },
-      {
-        "value": "system($cmd);",
-        "type": "text"
-      },
-      {
-        "value": "} else {",
-        "type": "text"
-      },
-      {
-        "value": "echo \"Use like this: ?cmd=dir or ?cmd=ls\";",
-        "type": "text"
-      },
-      {
-        "value": "}",
-        "type": "text"
-      },
-      {
-        "value": "?",
-        "type": "text"
-      }
-    ]
-  },
-  {
-    "id": 1761080352642,
-    "submittedAt": "2025-10-21T20:59:12.531Z",
-    "clientIP": "86.33.82.81",
-    "items": [
-      {
-        "value": "test",
-        "type": "text"
-      }
-    ]
-  },
-  {
-    "id": 1761080457647,
-    "submittedAt": "2025-10-21T21:00:57.441Z",
-    "clientIP": "86.33.82.81",
-    "items": [
-      {
-        "value": "test2",
-        "type": "text"
-      }
-    ]
-  },
-  {
-    "id": 1761081635776,
-    "submittedAt": "2025-10-21T21:20:34.874Z",
-    "clientIP": "86.33.78.1",
-    "items": [
-      {
-        "value": "test",
-        "type": "text"
-      }
-    ]
-  },
-  {
-    "id": 1761081665090,
-    "submittedAt": "2025-10-21T21:21:03.887Z",
-    "clientIP": "86.33.78.1",
-    "items": [
-      {
-        "value": "powershell",
-        "type": "text"
-      }
-    ]
-  }
-]
+
