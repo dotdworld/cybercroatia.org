@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="hr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CyberCroatia</title>
+
+  <!-- Open Graph / Social meta -->
   <meta property="og:title" content="CyberCroatia – Zajednica za cyber prijetnje">
-  <meta property="og:description" content="Zajednica za razmjenu IOC i IOA podataka.">
+  <meta property="og:description" content="Zajednica za razmjenu IOC i IOA podataka. Sudjeluj i ojačaj digitalnu obranu Hrvatske.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://cybercroatia.org/">
   <meta property="og:image" content="https://cybercroatia.org/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="CyberCroatia – Zajednica za cyber prijetnje">
   <meta name="twitter:card" content="summary_large_image">
-  <title>CyberCroatia</title>
+
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-gray-950 text-gray-100 font-sans">
 
   <!-- Navigacija -->
@@ -21,12 +26,11 @@
     <nav class="container mx-auto flex justify-between items-center p-4">
       <a href="index.html" class="text-2xl font-bold text-blue-500">CyberCroatia</a>
       <ul class="flex space-x-6 text-sm">
-        <li><a href="index.html" class="hover:text-blue-400">Home</a></li>
+        <li><a href="index.html" class="text-blue-400">Home</a></li>
         <li><a href="upload.html" class="hover:text-blue-400">Upload</a></li>
         <li><a href="browse.html" class="hover:text-blue-400">Browse</a></li>
-        <li><a href="#" class="hover:text-blue-400">Community</a></li>
-        <li><a href="#" class="hover:text-blue-400">Resources</a></li>
-        <li><a href="#" class="hover:text-blue-400">About</a></li>
+        <li><a href="about.html" class="hover:text-blue-400">About</a></li>
+        <li><a href="contact.html" class="hover:text-blue-400">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -34,7 +38,10 @@
   <!-- Hero sekcija -->
   <section class="container mx-auto text-center py-24 px-4">
     <h1 class="text-5xl font-bold mb-4 text-white">Zajednica za razmjenu cyber prijetnji</h1>
-    <p class="text-gray-400 mb-8">Budi dio zajednice. Sudjeluj u dijeljenju IOC i IOA podataka. Pomozimo jedni drugima ojačati digitalnu obranu Hrvatske.</p>
+    <p class="text-gray-400 mb-8">
+      Budi dio zajednice. Sudjeluj u dijeljenju IOC i IOA podataka.
+      Zajedno možemo ojačati digitalnu obranu Hrvatske.
+    </p>
     <a href="upload.html" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold">Pošalji IOC/IOA</a>
   </section>
 
@@ -44,7 +51,7 @@
     <div class="grid md:grid-cols-3 gap-6">
       <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
         <p class="font-mono text-sm text-blue-400">8.8.8.8</p>
-        <p class="text-gray-400 text-sm">Malicious IP - Scanning activity</p>
+        <p class="text-gray-400 text-sm">Malicious IP – Scanning activity</p>
       </div>
       <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
         <p class="font-mono text-sm text-blue-400">hxxp://bad-domain.ru</p>
@@ -57,8 +64,17 @@
     </div>
   </section>
 
+  <!-- Back to Homepage (nije nužno, ali dodano radi konzistentnosti) -->
+  <section class="container mx-auto px-4 pb-20 text-center">
+    <a href="index.html" class="inline-block bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold">
+      Back to Homepage
+    </a>
+  </section>
+
+  <!-- Footer -->
   <footer class="border-t border-gray-800 text-center text-gray-500 py-6 text-sm">
-    © 2025 CyberCroatia.org | Cyber Threat Intelligence Community
+    © 2025 CyberCroatia.org | Cyber Threat Intelligence Community ·
+    <a href="https://www.leonoramilisa.com" target="_blank" class="hover:text-blue-400">leonoramilisa.com</a>
   </footer>
 
 </body>
