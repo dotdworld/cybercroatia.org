@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="hr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="CyberCroatia – Zajednica za cyber prijetnje">
-  <meta property="og:description" content="Zajednica za razmjenu IOC i IOA podataka.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Browse - CyberCroatia</title>
+
+  <!-- Open Graph / Social meta -->
+  <meta property="og:title" content="CyberCroatia – Pregled prijetnji">
+  <meta property="og:description" content="Pregledaj najnovije IOC i IOA unose koje je zajednica podijelila.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://cybercroatia.org/">
+  <meta property="og:url" content="https://cybercroatia.org/browse.html">
   <meta property="og:image" content="https://cybercroatia.org/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="CyberCroatia – Zajednica za cyber prijetnje">
   <meta name="twitter:card" content="summary_large_image">
-  <title>Browse - CyberCroatia</title>
+
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-950 text-gray-100">
+
+<body class="bg-gray-950 text-gray-100 font-sans">
 
   <!-- Navigacija -->
   <header class="border-b border-gray-800">
@@ -23,30 +28,42 @@
       <ul class="flex space-x-6 text-sm">
         <li><a href="index.html" class="hover:text-blue-400">Home</a></li>
         <li><a href="upload.html" class="hover:text-blue-400">Upload</a></li>
-        <li><a href="browse.html" class="hover:text-blue-400">Browse</a></li>
+        <li><a href="browse.html" class="text-blue-400">Browse</a></li>
+        <li><a href="about.html" class="hover:text-blue-400">About</a></li>
+        <li><a href="contact.html" class="hover:text-blue-400">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Browse placeholder -->
+  <!-- Browse sekcija -->
   <section class="container mx-auto py-24 px-4">
     <h1 class="text-4xl font-bold mb-6">Pregled prijetnji</h1>
-    <p class="text-gray-400 mb-6">Ovdje će se prikazivati IOC i IOA unosi poslani od strane zajednice.</p>
+    <p class="text-gray-400 mb-10 max-w-2xl">
+      Ovdje se prikazuju najnoviji <span class="text-gray-200 font-semibold">IOC</span> i
+      <span class="text-gray-200 font-semibold">IOA</span> unosi koje su poslali članovi zajednice.
+      Cilj je omogućiti brz i otvoren pristup relevantnim indikatorima prijetnji.
+    </p>
 
-    <div class="bg-gray-900 border border-gray-800 rounded-xl p-6 text-center text-gray-500">
-      🔍 U izradi — uskoro će biti moguće pretraživati i filtrirati prijetnje po tipu i datumu.
+    <!-- Dinamički IOC unosi (učitava ih script.js) -->
+    <div id="iocList" class="grid gap-6">
+      <div class="bg-gray-900 border border-gray-800 rounded-xl p-6 text-center text-gray-500">
+        🔍 U izradi — uskoro će biti moguće pretraživati i filtrirati prijetnje po tipu i datumu.
+      </div>
     </div>
-     <!-- Back to Homepage -->
-    <div class="mt-8 text-center">
+
+    <!-- Back to Homepage -->
+    <div class="mt-12 text-center">
       <a href="index.html" class="inline-block bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold">
         Back to Homepage
       </a>
     </div>
   </section>
 
+  <!-- Footer -->
   <footer class="border-t border-gray-800 text-center text-gray-500 py-6 text-sm">
-    © 2025 CyberCroatia.org
+    © 2025 CyberCroatia.org · <a href="https://www.leonoramilisa.com" target="_blank" class="hover:text-blue-400">leonoramilisa.com</a>
   </footer>
 
 </body>
 </html>
+
