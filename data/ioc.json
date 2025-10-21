@@ -62,5 +62,16 @@
         "description": "test s opisom, botnet"
       }
     ]
+  },
+  {
+    "id": 1761077994192,
+    "submittedAt": "2025-10-21T20:19:54.192Z",
+    "clientIP": "86.33.36.80",
+    "items": [
+      {
+        "value": "silk-road[.]com",
+        "type": "domain"
+      }
+    ]
   }
 ]
