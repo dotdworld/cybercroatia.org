@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload - CyberCroatia</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="script.js"></script>
+</head>
+<body class="bg-gray-950 text-gray-100">
+
+  <!-- Navigacija -->
+  <header class="border-b border-gray-800">
+    <nav class="container mx-auto flex justify-between items-center p-4">
+      <a href="index.html" class="text-2xl font-bold text-blue-500">CyberCroatia</a>
+      <ul class="flex space-x-6 text-sm">
+        <li><a href="index.html" class="hover:text-blue-400">Home</a></li>
+        <li><a href="upload.html" class="hover:text-blue-400">Upload</a></li>
+        <li><a href="browse.html" class="hover:text-blue-400">Browse</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Upload forma -->
+  <section class="container mx-auto py-24 px-4 text-center">
+    <h1 class="text-4xl font-bold mb-6">Pošalji IOC ili IOA</h1>
+    <p class="text-gray-400 mb-8">Dodaj pojedinačno ili učitaj datoteku (CSV, JSON, TXT).</p>
+
+    <form id="uploadForm" class="bg-gray-900 border border-gray-800 rounded-xl p-8 max-w-xl mx-auto">
+      <label class="block text-left mb-4">
+        <span class="text-gray-300">Unesi IOC/IOA ručno:</span>
+        <textarea id="iocText" class="w-full mt-2 p-3 bg-gray-800 rounded-md" rows="4" placeholder="Primjer: 192.168.1.1, malicious-domain.com, SHA256 hash..."></textarea>
+      </label>
+
+      <div class="my-6 text-gray-400">ili</div>
+
+      <label class="block text-left mb-4">
+        <span class="text-gray-300">Upload datoteke:</span>
+        <input id="iocFile" type="file" class="w-full mt-2 p-2 bg-gray-800 rounded-md text-gray-400" accept=".csv,.json,.txt" />
+      </label>
+
+      <button type="submit" class="mt-6 bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold w-full">Pošalji</button>
+    </form>
+  </section>
+
+  <footer class="border-t border-gray-800 text-center text-gray-500 py-6 text-sm">
+    © 2025 CyberCroatia.org
+  </footer>
+
+</body>
+</html>
