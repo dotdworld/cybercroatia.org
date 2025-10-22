@@ -1,18 +1,5 @@
 [
   {
-    "id": 1761156554624,
-    "submittedAt": "2025-10-22T18:09:14.198Z",
-    "clientIP": "86.33.78.1",
-    "items": [
-      {
-        "value": "dex[.]cxp",
-        "type": "domain",
-        "description": "@tiki.id Docusign phishing",
-        "reputation": "unknown"
-      }
-    ]
-  },
-  {
     "id": 1761156752703,
     "submittedAt": "2025-10-22T18:12:32.532Z",
     "clientIP": "86.33.78.1",
