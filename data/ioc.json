@@ -279,5 +279,18 @@
         "description": ".data trojan.rhysida/interlock Small autoremove DLL used by the ransomware Interlock ransomware evolving under the radar"
       }
     ]
+  },
+  {
+    "id": 1761162815604,
+    "submittedAt": "2025-10-22T19:53:34.822Z",
+    "clientIP": "86.33.78.1",
+    "items": [
+      {
+        "value": "s3[.]us-east-2[.]amazonaws[.]com",
+        "type": "domain",
+        "description": "phishing",
+        "reputation": "suspicious"
+      }
+    ]
   }
 ]
