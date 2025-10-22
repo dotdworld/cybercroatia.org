@@ -75,5 +75,18 @@
         "reputation": "clean"
       }
     ]
+  },
+  {
+    "id": 1761156658344,
+    "submittedAt": "2025-10-22T18:10:57.453Z",
+    "clientIP": "86.33.78.1",
+    "items": [
+      {
+        "value": "r[.]ypcdn[.]com",
+        "type": "domain",
+        "description": "docusign phishing",
+        "reputation": "suspicious"
+      }
+    ]
   }
 ]
