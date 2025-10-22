@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "id": 1761128116676,
+    "submittedAt": "2025-10-22T10:15:16.636Z",
+    "clientIP": "2.58.56.93",
+    "items": [
+      {
+        "value": "test[.]test",
+        "type": "domain",
+        "reputation": "unknown"
+      }
+    ]
+  }
+]
