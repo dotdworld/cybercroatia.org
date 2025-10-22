@@ -330,5 +330,17 @@
         "reputation": "malicious"
       }
     ]
+  },
+  {
+    "id": 1761163700597,
+    "submittedAt": "2025-10-22T20:08:20.324Z",
+    "clientIP": "86.33.78.1",
+    "items": [
+      {
+        "value": "20[.]171[.]207[.]210",
+        "type": "ip",
+        "description": "Used in DDOS attack"
+      }
+    ]
   }
 ]
