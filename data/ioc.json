@@ -231,5 +231,17 @@
         "description": "ransomware. Interlock/freebsd"
       }
     ]
+  },
+  {
+    "id": 1761161979042,
+    "submittedAt": "2025-10-22T19:39:38.280Z",
+    "clientIP": "86.33.78.1",
+    "items": [
+      {
+        "value": "e689601d502cc0cd8017f9d6953ce7e201b2dad42f679dc33afa673249ea1aa4",
+        "type": "sha256",
+        "description": "Compilation of copyrighted videos and images.bat Glazbena prava mailovi"
+      }
+    ]
   }
 ]
