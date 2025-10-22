@@ -1,17 +1,5 @@
 [
   {
-    "id": 1761128116676,
-    "submittedAt": "2025-10-22T10:15:16.636Z",
-    "clientIP": "2.58.56.93",
-    "items": [
-      {
-        "value": "test[.]test",
-        "type": "domain",
-        "reputation": "unknown"
-      }
-    ]
-  },
-  {
     "id": 1761156554624,
     "submittedAt": "2025-10-22T18:09:14.198Z",
     "clientIP": "86.33.78.1",
