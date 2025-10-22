@@ -255,5 +255,17 @@
         "description": "Hzodrova.exe trojan.msil/jalapeno New TorNet backdoor seen in widespread campaign"
       }
     ]
+  },
+  {
+    "id": 1761162268462,
+    "submittedAt": "2025-10-22T19:44:27.911Z",
+    "clientIP": "86.33.78.1",
+    "items": [
+      {
+        "value": "d16a7c5f3f4029a621af092322349959796ce9ef302b4eb4475e073774a8d085",
+        "type": "sha256",
+        "description": "POLICIJE.pdf trojan.fraud/scam Obavijest Policije"
+      }
+    ]
   }
 ]
