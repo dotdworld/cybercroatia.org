@@ -88,5 +88,18 @@
         "reputation": "suspicious"
       }
     ]
+  },
+  {
+    "id": 1761158696270,
+    "submittedAt": "2025-10-22T18:44:55.653Z",
+    "clientIP": "86.33.78.1",
+    "items": [
+      {
+        "value": "xcoin-swap[.]com",
+        "type": "domain",
+        "description": "crypto prijevara",
+        "reputation": "malicious"
+      }
+    ]
   }
 ]
