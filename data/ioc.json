@@ -101,5 +101,24 @@
         "reputation": "malicious"
       }
     ]
+  },
+  {
+    "id": 1761159082121,
+    "submittedAt": "2025-10-22T18:51:22.102Z",
+    "clientIP": "86.33.78.1",
+    "items": [
+      {
+        "value": "gov-nias[.]com",
+        "type": "domain",
+        "description": "lazni egradjani",
+        "reputation": "malicious"
+      },
+      {
+        "value": "nias-gov[.]com",
+        "type": "domain",
+        "description": "lazni egradjani",
+        "reputation": "malicious"
+      }
+    ]
   }
 ]
