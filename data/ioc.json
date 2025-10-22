@@ -267,5 +267,17 @@
         "description": "POLICIJE.pdf trojan.fraud/scam Obavijest Policije"
       }
     ]
+  },
+  {
+    "id": 1761162404451,
+    "submittedAt": "2025-10-22T19:46:44.077Z",
+    "clientIP": "86.33.78.1",
+    "items": [
+      {
+        "value": "c9920e995fbc98cd3883ef4c4520300d5e82bab5d2a5c781e9e9fe694a43e82f",
+        "type": "sha256",
+        "description": ".data trojan.rhysida/interlock Small autoremove DLL used by the ransomware Interlock ransomware evolving under the radar"
+      }
+    ]
   }
 ]
