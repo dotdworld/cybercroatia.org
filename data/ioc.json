@@ -219,5 +219,17 @@
         "description": "Pxixyvpa.exe New TorNet backdoor seen in widespread campaign"
       }
     ]
+  },
+  {
+    "id": 1761161847619,
+    "submittedAt": "2025-10-22T19:37:26.621Z",
+    "clientIP": "86.33.78.1",
+    "items": [
+      {
+        "value": "e86bb8361c436be94b0901e5b39db9b6666134f23cce1e5581421c2981405cb1",
+        "type": "sha256",
+        "description": "ransomware. Interlock/freebsd"
+      }
+    ]
   }
 ]
