@@ -195,5 +195,17 @@
         "reputation": "malicious"
       }
     ]
+  },
+  {
+    "id": 1761161438963,
+    "submittedAt": "2025-10-22T19:30:38.137Z",
+    "clientIP": "86.33.78.1",
+    "items": [
+      {
+        "value": "edac6216665f1c8b0a09158abdd5e7fab63a386a1c9ad31ddd5ee92a6aa811fc",
+        "type": "sha256",
+        "description": "Nkzhwtuma.exe New TorNet backdoor seen in widespread campaign"
+      }
+    ]
   }
 ]
