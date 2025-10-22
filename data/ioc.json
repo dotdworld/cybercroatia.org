@@ -317,5 +317,18 @@
         "description": "This IP address is associated with the domain kakab[.]net, which was used in a malicious phishing attack."
       }
     ]
+  },
+  {
+    "id": 1761163433710,
+    "submittedAt": "2025-10-22T20:03:53.070Z",
+    "clientIP": "86.33.78.1",
+    "items": [
+      {
+        "value": "mexc[.]feedback",
+        "type": "domain",
+        "description": "maliciozna SMSishing kampanja s aktivacijskim kodom",
+        "reputation": "malicious"
+      }
+    ]
   }
 ]
