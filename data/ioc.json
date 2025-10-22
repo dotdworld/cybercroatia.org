@@ -305,5 +305,18 @@
         "reputation": "suspicious"
       }
     ]
+  },
+  {
+    "id": 1761162951404,
+    "submittedAt": "2025-10-22T19:55:51.180Z",
+    "clientIP": "86.33.78.1",
+    "items": [
+      {
+        "value": "hxxp://s3[.]us-east-2[.]amazonaws[.]com/54ah1.0h.0h-pc-windows-l0cked-err0r-992.987/T9432/T9432/index.html",
+        "type": "url",
+        "description": "cijela poveznica za phishing",
+        "reputation": "suspicious"
+      }
+    ]
   }
 ]
