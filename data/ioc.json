@@ -120,5 +120,17 @@
         "reputation": "malicious"
       }
     ]
+  },
+  {
+    "id": 1761159710403,
+    "submittedAt": "2025-10-22T19:01:49.463Z",
+    "clientIP": "86.33.78.1",
+    "items": [
+      {
+        "value": "fdad95329954e0085d992cba78188a26abd718797f4a83347ec402f70fe65269",
+        "type": "sha256",
+        "description": "PXAStealer.zip"
+      }
+    ]
   }
 ]
