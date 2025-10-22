@@ -21,12 +21,6 @@
         "type": "domain",
         "description": "@tiki.id Docusign phishing",
         "reputation": "unknown"
-      },
-      {
-        "value": "r[.]ypcdn[.]com",
-        "type": "domain",
-        "description": "docusign phishing",
-        "reputation": "suspicious"
       }
     ]
   }
