@@ -132,5 +132,17 @@
         "description": "PXAStealer.zip"
       }
     ]
+  },
+  {
+    "id": 1761159804676,
+    "submittedAt": "2025-10-22T19:03:23.784Z",
+    "clientIP": "86.33.78.1",
+    "items": [
+      {
+        "value": "fb7ea6dcead9121084c57dd834bf8693b19e370049673fa3eebf9f7fb310dc1f",
+        "type": "sha256",
+        "description": "PDF_HR_POL.jpg (Obavijest policije)"
+      }
+    ]
   }
 ]
