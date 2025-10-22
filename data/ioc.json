@@ -305,5 +305,17 @@
         "reputation": "suspicious"
       }
     ]
+  },
+  {
+    "id": 1761163362229,
+    "submittedAt": "2025-10-22T20:02:41.700Z",
+    "clientIP": "86.33.78.1",
+    "items": [
+      {
+        "value": "202[.]145[.]0[.]86",
+        "type": "ip",
+        "description": "This IP address is associated with the domain kakab[.]net, which was used in a malicious phishing attack."
+      }
+    ]
   }
 ]
