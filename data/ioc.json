@@ -207,5 +207,17 @@
         "description": "Nkzhwtuma.exe New TorNet backdoor seen in widespread campaign"
       }
     ]
+  },
+  {
+    "id": 1761161742866,
+    "submittedAt": "2025-10-22T19:35:42.755Z",
+    "clientIP": "86.33.78.1",
+    "items": [
+      {
+        "value": "e9ab4772ba6de2db9add3d4bbd3ce0f2dd899f16399b57fd2a539769e6ee973a",
+        "type": "sha256",
+        "description": "Pxixyvpa.exe New TorNet backdoor seen in widespread campaign"
+      }
+    ]
   }
 ]
