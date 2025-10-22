@@ -243,5 +243,17 @@
         "description": "Compilation of copyrighted videos and images.bat Glazbena prava mailovi"
       }
     ]
+  },
+  {
+    "id": 1761162162358,
+    "submittedAt": "2025-10-22T19:42:42.010Z",
+    "clientIP": "86.33.78.1",
+    "items": [
+      {
+        "value": "dc513e35a6d96933e7af2b300782a32131d31445a6d1e2bbca9604128c92e7c6",
+        "type": "sha256",
+        "description": "Hzodrova.exe trojan.msil/jalapeno New TorNet backdoor seen in widespread campaign"
+      }
+    ]
   }
 ]
