@@ -73,9 +73,12 @@ document.getElementById("uploadForm")?.addEventListener("submit", async function
  *  - heuristiku: prvi IOC u liniji = value, ostatak linije = opis
  *  - zarez/; kao više vrijednosti u jednoj liniji
  *  - JSON objekt/array po liniji (ako je tko zalijepio)
+ *  - e-mail IOC-e (user@example.com, user[@]example[.]com, itd.)
  */
 function parseLines(raw) {
   const IOC_RE = {
+    // email mora biti prvi (da ne razdvaja na @)
+    email: /^(?:[^\s@]+@(?:(?!-)(?:[a-z0-9-]{1,63}\.)+[a-z]{2,63}|(?:[a-z0-9-]{1,63}\[\.\])+[a-z]{2,63})|[^\s@]+\[@\][^\s@]+(?:\.[^\s@]+|\[\.\][^\s@]+)+)$/i,
     url: /\b(?:(?:hxxps?|https?):\/\/)[^\s]+/i,
     ip: /(?:^|\s)(\d{1,3}(?:\.\d{1,3}){3})(?=\s|$)/,
     sha256: /\b[a-f0-9]{64}\b/i,
@@ -84,7 +87,7 @@ function parseLines(raw) {
     // domena i defang domena (example[.]com)
     domain: /\b(?!-)(?:[a-z0-9-]{1,63}\.)+[a-z]{2,63}\b|\b(?!-)(?:[a-z0-9-]{1,63}\[\.\])+(?:[a-z]{2,63})\b/i,
   };
-  const ORDER = ["url", "ip", "sha256", "sha1", "md5", "domain"];
+  const ORDER = ["email", "url", "ip", "sha256", "sha1", "md5", "domain"];
 
   return raw
     .split(/\r?\n/)
@@ -157,7 +160,7 @@ function normalizeItem(x) {
   if (typeof x === "string") {
     const s = x.trim();
     return s ? { value: s } : null;
-    }
+  }
   if (typeof x === "object") {
     const v = (x.value ?? x.ioc ?? x.indicator ?? "").toString().trim();
     if (!v) return null;
