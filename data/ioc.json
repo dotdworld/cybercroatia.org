@@ -294,19 +294,6 @@
     ]
   },
   {
-    "id": 1761162862163,
-    "submittedAt": "2025-10-22T19:54:21.949Z",
-    "clientIP": "86.33.78.1",
-    "items": [
-      {
-        "value": "s3[.]us-east-2[.]amazonaws[.]com",
-        "type": "domain",
-        "description": "phishing",
-        "reputation": "suspicious"
-      }
-    ]
-  },
-  {
     "id": 1761162951404,
     "submittedAt": "2025-10-22T19:55:51.180Z",
     "clientIP": "86.33.78.1",
