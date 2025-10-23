@@ -342,5 +342,18 @@
         "description": "Used in DDOS attack"
       }
     ]
+  },
+  {
+    "id": 1761205390395,
+    "submittedAt": "2025-10-23T07:43:10.159Z",
+    "clientIP": "86.33.78.1",
+    "items": [
+      {
+        "value": "kakab[.]net",
+        "type": "domain",
+        "description": "phishing domena",
+        "reputation": "malicious"
+      }
+    ]
   }
 ]
