@@ -381,5 +381,18 @@
         "reputation": "malicious"
       }
     ]
+  },
+  {
+    "id": 1761470284069,
+    "submittedAt": "2025-10-26T09:18:03.803Z",
+    "clientIP": "86.33.94.184",
+    "items": [
+      {
+        "value": "billing[.]digitalhuner[.]com",
+        "type": "domain",
+        "description": "Microsoft account phishing",
+        "reputation": "clean"
+      }
+    ]
   }
 ]
