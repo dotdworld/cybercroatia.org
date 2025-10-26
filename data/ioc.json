@@ -368,5 +368,18 @@
         "reputation": "malicious"
       }
     ]
+  },
+  {
+    "id": 1761467140833,
+    "submittedAt": "2025-10-26T08:25:39.929Z",
+    "clientIP": "31.217.55.98",
+    "items": [
+      {
+        "value": "azure[.]saskaggrads[.]com",
+        "type": "domain",
+        "description": "Microsoft phishing redirect drugi",
+        "reputation": "malicious"
+      }
+    ]
   }
 ]
