@@ -24,5 +24,18 @@
         "reputation": "clean"
       }
     ]
+  },
+  {
+    "id": 1761467184659,
+    "submittedAt": "2025-10-26T08:26:23.780Z",
+    "clientIP": "31.217.55.98",
+    "items": [
+      {
+        "value": "r2training[.]fr",
+        "type": "domain",
+        "description": "info@ mail s kojeg idu phishing kampanje s Microsoft proizvodima",
+        "reputation": "clean"
+      }
+    ]
   }
 ]
