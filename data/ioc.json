@@ -355,5 +355,18 @@
         "reputation": "malicious"
       }
     ]
+  },
+  {
+    "id": 1761466918068,
+    "submittedAt": "2025-10-26T08:21:58.041Z",
+    "clientIP": "31.217.55.98",
+    "items": [
+      {
+        "value": "hxxp://forms[.]visme[.]co/fv/9kgkk708-dwkozv",
+        "type": "url",
+        "description": "- Phishing sluzba za pomoc",
+        "reputation": "malicious"
+      }
+    ]
   }
 ]
