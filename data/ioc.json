@@ -394,5 +394,18 @@
         "reputation": "clean"
       }
     ]
+  },
+  {
+    "id": 1761566580751,
+    "submittedAt": "2025-10-27T12:03:00.278Z",
+    "clientIP": "31.217.55.98",
+    "items": [
+      {
+        "value": "hxxp://form[.]jotform[.]com/251833947484267",
+        "type": "url",
+        "description": "phish",
+        "reputation": "malicious"
+      }
+    ]
   }
 ]
