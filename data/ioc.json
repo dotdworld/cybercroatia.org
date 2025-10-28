@@ -420,5 +420,18 @@
         "note": "public-infra"
       }
     ]
+  },
+  {
+    "id": 1761661028438,
+    "submittedAt": "2025-10-28T14:17:08.425Z",
+    "clientIP": "86.33.93.237",
+    "items": [
+      {
+        "value": "cloudpulsees[.]ru",
+        "type": "domain",
+        "description": "C2 domena phishing qr slucaj",
+        "reputation": "malicious"
+      }
+    ]
   }
 ]
