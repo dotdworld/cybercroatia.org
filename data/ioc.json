@@ -433,5 +433,18 @@
         "reputation": "malicious"
       }
     ]
+  },
+  {
+    "id": 1761661535974,
+    "submittedAt": "2025-10-28T14:25:35.889Z",
+    "clientIP": "86.33.93.237",
+    "items": [
+      {
+        "value": "barbarianism3947[.]klyraoe[.]space",
+        "type": "domain",
+        "description": "phishing preko qr koda",
+        "reputation": "clean"
+      }
+    ]
   }
 ]
