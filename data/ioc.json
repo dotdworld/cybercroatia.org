@@ -433,5 +433,17 @@
         "reputation": "clean"
       }
     ]
+  },
+  {
+    "id": 1761662455652,
+    "submittedAt": "2025-10-28T14:40:55.567Z",
+    "clientIP": "86.33.93.237",
+    "items": [
+      {
+        "value": "7c58ed18e906b10dd8a2fbc500e3bc0a1da5c3f35ea92546e490fbd170cd3d4f",
+        "type": "sha256",
+        "description": "Pozvani ste - datoteka koja sadrzi maliciozni qr kod koji vodi na phishing"
+      }
+    ]
   }
 ]
