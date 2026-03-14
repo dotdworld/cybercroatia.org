@@ -445,5 +445,17 @@
         "description": "Pozvani ste - datoteka koja sadrzi maliciozni qr kod koji vodi na phishing"
       }
     ]
+  },
+  {
+    "id": 1773514016737,
+    "submittedAt": "2026-03-14T18:46:56.177Z",
+    "clientIP": "89.172.186.239",
+    "items": [
+      {
+        "value": "uanl[.]mx",
+        "type": "domain",
+        "reputation": "clean"
+      }
+    ]
   }
 ]
