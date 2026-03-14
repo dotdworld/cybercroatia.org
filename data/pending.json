@@ -1,1 +1,15 @@
-[]
+[
+  {
+    "id": 1773514077932,
+    "submittedAt": "2026-03-14T18:47:57.692Z",
+    "clientIP": "89.172.186.239",
+    "items": [
+      {
+        "value": "prod[.]enter[.]pro",
+        "type": "domain",
+        "description": "maliciozna phishing kampanja, slanje s domene uanl.mx",
+        "reputation": "clean"
+      }
+    ]
+  }
+]
