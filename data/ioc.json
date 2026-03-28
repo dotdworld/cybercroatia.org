@@ -457,5 +457,18 @@
         "reputation": "clean"
       }
     ]
+  },
+  {
+    "id": 1774711985727,
+    "submittedAt": "2026-03-28T15:33:05.087Z",
+    "clientIP": "78.0.234.201",
+    "items": [
+      {
+        "value": "prod[.]enter[.]pro",
+        "type": "domain",
+        "description": "maliciozna phishing kampanja, slanje s domene uanl.mx",
+        "reputation": "clean"
+      }
+    ]
   }
 ]
