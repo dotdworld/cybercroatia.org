@@ -30,7 +30,6 @@
         <li><a href="browse.html" class="hover:text-blue-400 block py-2 md:py-0">Browse</a></li>
         <li><a href="rocky-chat.html" class="text-blue-400 block py-2 md:py-0">Rocky Chat</a></li>
         <li><a href="about.html" class="hover:text-blue-400 block py-2 md:py-0">About</a></li>
-        <li><a href="rocky-chat.html" class="hover:text-blue-400 block py-2 md:py-0">Rocky Chat</a></li>
         <li><a href="contact.html" class="hover:text-blue-400 block py-2 md:py-0">Contact</a></li>
       </ul>
     </nav>
@@ -84,23 +83,23 @@
         </div>
 
         <div class="grid gap-3 sm:grid-cols-2">
-          <button class="quickPrompt text-left bg-gray-950 border border-gray-800 hover:border-blue-600 rounded-xl p-4 text-sm text-gray-300 transition">
+          <button type="button" class="quickPrompt text-left bg-gray-950 border border-gray-800 hover:border-blue-600 rounded-xl p-4 text-sm text-gray-300 transition">
             Is powershell.exe spawned by excel.exe suspicious?
           </button>
 
-          <button class="quickPrompt text-left bg-gray-950 border border-gray-800 hover:border-blue-600 rounded-xl p-4 text-sm text-gray-300 transition">
+          <button type="button" class="quickPrompt text-left bg-gray-950 border border-gray-800 hover:border-blue-600 rounded-xl p-4 text-sm text-gray-300 transition">
             Explain svchost.exe and its expected parent process.
           </button>
 
-          <button class="quickPrompt text-left bg-gray-950 border border-gray-800 hover:border-blue-600 rounded-xl p-4 text-sm text-gray-300 transition">
+          <button type="button" class="quickPrompt text-left bg-gray-950 border border-gray-800 hover:border-blue-600 rounded-xl p-4 text-sm text-gray-300 transition">
             Is rundll32.exe a LOLBin and when should I worry?
           </button>
 
-          <button class="quickPrompt text-left bg-gray-950 border border-gray-800 hover:border-blue-600 rounded-xl p-4 text-sm text-gray-300 transition">
+          <button type="button" class="quickPrompt text-left bg-gray-950 border border-gray-800 hover:border-blue-600 rounded-xl p-4 text-sm text-gray-300 transition">
             Analyze explorer.exe launching cmd.exe with suspicious arguments.
           </button>
         </div>
-              </div>
+      </div>
 
       <form id="rockyForm" class="border-t border-gray-800 p-4 sm:p-5">
         <label for="rockyInput" class="sr-only">Ask Rocky</label>
@@ -142,11 +141,12 @@
     </div>
 
   </main>
-
-  <footer class="border-t border-gray-800 text-center text-gray-500 py-6 text-sm px-4">
+    <footer class="border-t border-gray-800 text-center text-gray-500 py-6 text-sm px-4">
     © 2025 CyberCroatia.org ·
     <a href="contact.html" class="hover:text-blue-400">Kontakt</a> ·
-    <a href="https://www.leonoramilisa.com" target="_blank" class="hover:text-blue-400">leonoramilisa.com</a>
+    <a href="https://www.leonoramilisa.com" target="_blank" class="hover:text-blue-400">
+      leonoramilisa.com
+    </a>
   </footer>
 
   <script>
@@ -173,16 +173,21 @@
 
     function addMessage(role, text) {
       const wrapper = document.createElement("div");
-      wrapper.className = role === "user" ? "flex gap-3 justify-end" : "flex gap-3";
+      wrapper.className =
+        role === "user"
+          ? "flex gap-3 justify-end"
+          : "flex gap-3";
 
       const avatar = document.createElement("div");
-      avatar.className = "w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center shrink-0";
+      avatar.className =
+        "w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center shrink-0";
       avatar.textContent = role === "user" ? "👤" : "🦝";
 
       const bubble = document.createElement("div");
-      bubble.className = role === "user"
-        ? "bg-blue-600 rounded-2xl rounded-tr-sm p-4 max-w-3xl"
-        : "bg-gray-800 border border-gray-700 rounded-2xl rounded-tl-sm p-4 max-w-3xl";
+      bubble.className =
+        role === "user"
+          ? "bg-blue-600 rounded-2xl rounded-tr-sm p-4 max-w-3xl"
+          : "bg-gray-800 border border-gray-700 rounded-2xl rounded-tl-sm p-4 max-w-3xl";
 
       bubble.innerHTML = `<p class="text-sm leading-6 whitespace-pre-wrap">${escapeHtml(text)}</p>`;
 
@@ -206,6 +211,50 @@
       submitButton.classList.toggle("cursor-not-allowed", isLoading);
     }
 
+    async function sendMessage(message) {
+      addMessage("user", message);
+      input.value = "";
+      setLoading(true);
+
+      try {
+        const response = await fetch(
+          "https://rocky-chat.leonoramilisa.workers.dev",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ message })
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error("HTTP " + response.status);
+        }
+
+        const data = await response.json();
+
+        if (data.answer) {
+          addMessage("assistant", data.answer);
+        } else if (data.response) {
+          addMessage("assistant", data.response);
+        } else if (typeof data === "string") {
+          addMessage("assistant", data);
+        } else {
+          addMessage("assistant", JSON.stringify(data, null, 2));
+        }
+
+      } catch (error) {
+        console.error(error);
+        addMessage(
+          "assistant",
+          "Something went wrong while contacting Rocky. Please try again later."
+        );
+      } finally {
+        setLoading(false);
+      }
+    }
+
     quickPrompts.forEach((button) => {
       button.addEventListener("click", () => {
         input.value = button.textContent.trim();
@@ -217,54 +266,19 @@
       event.preventDefault();
 
       const message = input.value.trim();
+      if (!message) return;
 
-      if (!message) {
-        return;
-      }
+      await sendMessage(message);
+    });
 
-      addMessage("user", message);
-      input.value = "";
+    input.addEventListener("keydown", async (event) => {
+      if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault();
 
-      setLoading(true);
+        const message = input.value.trim();
+        if (!message) return;
 
-      try {
-         const response = await fetch(
-    "https://rocky-chat.leonoramilisa.workers.dev",
-    {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            message
-        })
-    }
-);
-
-const data = await response.json();
-
-if (data.answer) {
-    addMessage("assistant", data.answer);
-} else {
-    addMessage(
-        "assistant",
-        JSON.stringify(data, null, 2)
-    );
-}
-
-        await new Promise((resolve) => setTimeout(resolve, 500));
-
-        addMessage(
-          "assistant",
-          "Rocky endpoint is not connected yet. Next step: connect this page to your Cloudflare Worker so the API key stays hidden."
-        );
-      } catch (error) {
-        addMessage(
-          "assistant",
-          "Something went wrong while contacting Rocky. Please try again later."
-        );
-      } finally {
-        setLoading(false);
+        await sendMessage(message);
       }
     });
   </script>
