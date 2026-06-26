@@ -210,7 +210,61 @@
       submitButton.classList.toggle("opacity-60", isLoading);
       submitButton.classList.toggle("cursor-not-allowed", isLoading);
     }
+    function formatRockyJson(data) {
+  const lines = [];
 
+    if (data.process_name) lines.push(`Process: ${data.process_name}`);
+    if (data.description) lines.push(`\nDescription:\n${data.description}`);
+  
+    if (data.classification) {
+      lines.push(`\nClassification:`);
+      if (data.classification.category) lines.push(`Category: ${data.classification.category}`);
+      if (data.classification.publisher) lines.push(`Publisher: ${data.classification.publisher}`);
+      if (typeof data.classification.is_lolbin === "boolean") lines.push(`LOLBin: ${data.classification.is_lolbin ? "Yes" : "No"}`);
+      if (data.classification.risk_level) lines.push(`Risk level: ${data.classification.risk_level}`);
+      if (data.classification.expected_parent) lines.push(`Expected parent: ${data.classification.expected_parent}`);
+    }
+  
+    if (data.intel) {
+      lines.push(`\nNormal behavior:\n${data.intel.normal_behavior || "N/A"}`);
+      lines.push(`\nSuspicious indicators:\n${data.intel.suspicious_indicators || "N/A"}`);
+      lines.push(`\nAbuse patterns:\n${data.intel.abuse_patterns || "N/A"}`);
+      lines.push(`\nDetection guidance:\n${data.intel.detection_guidance || "N/A"}`);
+      if (data.intel.false_positive_notes) lines.push(`\nFalse positive notes:\n${data.intel.false_positive_notes}`);
+      if (Array.isArray(data.intel.mitre_techniques) && data.intel.mitre_techniques.length) {
+        lines.push(`\nMITRE techniques: ${data.intel.mitre_techniques.join(", ")}`);
+      }
+    }
+  
+    if (data.executions) {
+      lines.push(`\nExecutions:`);
+      if (data.executions.total) lines.push(`Total: ${data.executions.total}`);
+      if (data.executions.confidence) lines.push(`Confidence: ${data.executions.confidence}`);
+    }
+  
+    if (data.parents?.top?.length) {
+      lines.push(`\nTop parents:`);
+      data.parents.top.slice(0, 5).forEach((item) => {
+        lines.push(`- ${item.name}: ${item.count}${item.percentage ? ` (${item.percentage}%)` : ""}`);
+      });
+    }
+  
+    if (data.children?.top?.length) {
+      lines.push(`\nTop children:`);
+      data.children.top.slice(0, 5).forEach((item) => {
+        lines.push(`- ${item.name}: ${item.count}`);
+      });
+    }
+  
+    if (data.paths?.top?.length) {
+      lines.push(`\nTop paths:`);
+      data.paths.top.slice(0, 5).forEach((item) => {
+        lines.push(`- ${item.path}: ${item.count}${item.percentage ? ` (${item.percentage}%)` : ""}`);
+      });
+    }
+  
+    return lines.join("\n");
+  }
     async function sendMessage(message) {
       addMessage("user", message);
       input.value = "";
@@ -234,15 +288,17 @@
 
         const data = await response.json();
 
+        let rockyAnswer = "";
+
         if (data.answer) {
-          addMessage("assistant", data.answer);
+          rockyAnswer = data.answer;
         } else if (data.response) {
-          addMessage("assistant", data.response);
-        } else if (typeof data === "string") {
-          addMessage("assistant", data);
+          rockyAnswer = data.response;
         } else {
-          addMessage("assistant", JSON.stringify(data, null, 2));
+          rockyAnswer = formatRockyJson(data);
         }
+        
+        addMessage("assistant", rockyAnswer);
 
       } catch (error) {
         console.error(error);
