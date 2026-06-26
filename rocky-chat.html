@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Rocky Chat - CyberCroatia</title>
+
+  <meta property="og:title" content="CyberCroatia – Rocky Chat">
+  <meta property="og:description" content="Let Rocky tell you whether your process is minding its own business... or someone else's.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cybercroatia.org/rocky-chat.html">
+  <meta property="og:image" content="https://cybercroatia.org/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-950 text-gray-100 font-sans min-h-screen">
+
+  <header class="border-b border-gray-800">
+    <nav class="container mx-auto flex flex-wrap justify-between items-center p-4">
+      <a href="index.html" class="text-2xl font-bold text-blue-500">CyberCroatia</a>
+
+      <button id="menuToggle" class="block md:hidden text-gray-300 focus:outline-none">☰</button>
+
+      <ul id="menu" class="hidden md:flex space-x-6 text-sm w-full md:w-auto mt-4 md:mt-0">
+        <li><a href="index.html" class="hover:text-blue-400 block py-2 md:py-0">Home</a></li>
+        <li><a href="upload.html" class="hover:text-blue-400 block py-2 md:py-0">Upload</a></li>
+        <li><a href="browse.html" class="hover:text-blue-400 block py-2 md:py-0">Browse</a></li>
+        <li><a href="rocky-chat.html" class="text-blue-400 block py-2 md:py-0">Rocky Chat</a></li>
+        <li><a href="about.html" class="hover:text-blue-400 block py-2 md:py-0">About</a></li>
+        <li><a href="contact.html" class="hover:text-blue-400 block py-2 md:py-0">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container mx-auto px-6 sm:px-8 md:px-12 py-12 max-w-5xl">
+
+    <div class="mb-8">
+      <a href="index.html" class="text-blue-400 hover:text-blue-300 transition text-sm">
+        ← Back to Homepage
+      </a>
+    </div>
+
+    <section class="text-center mb-10">
+      <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-900 border border-gray-800 mb-5 text-3xl">
+        🦝
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl font-bold mb-4">Rocky Chat</h1>
+
+      <p class="text-gray-400 max-w-2xl mx-auto text-base sm:text-lg">
+        Let Rocky tell you whether your process is minding its own business... or someone else's.
+      </p>
+    </section>
+
+    <section class="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden shadow-xl">
+
+      <div class="border-b border-gray-800 p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <div>
+          <h2 class="text-xl font-semibold">The Cyber Raccoon</h2>
+          <p class="text-gray-500 text-sm">
+            Ask about Windows processes, parent-child relationships, command lines or suspicious behavior.
+          </p>
+        </div>
+
+        <div class="inline-flex items-center gap-2 text-xs text-green-400 bg-green-950/40 border border-green-900 px-3 py-1 rounded-full w-fit">
+          <span class="w-2 h-2 rounded-full bg-green-400"></span>
+          Ready
+        </div>
+      </div>
+
+      <div id="chatWindow" class="p-5 sm:p-6 space-y-5 min-h-[420px] max-h-[620px] overflow-y-auto">
+
+        <div class="flex gap-3">
+          <div class="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center shrink-0">🦝</div>
+          <div class="bg-gray-800 border border-gray-700 rounded-2xl rounded-tl-sm p-4 max-w-3xl">
+            <p class="text-gray-200 text-sm leading-6">
+              Hi, I'm Rocky. Paste a process, command line, or parent-child chain and I’ll help you check whether it looks normal, suspicious, or worth deeper investigation.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid gap-3 sm:grid-cols-2">
+          <button class="quickPrompt text-left bg-gray-950 border border-gray-800 hover:border-blue-600 rounded-xl p-4 text-sm text-gray-300 transition">
+            Is powershell.exe spawned by excel.exe suspicious?
+          </button>
+
+          <button class="quickPrompt text-left bg-gray-950 border border-gray-800 hover:border-blue-600 rounded-xl p-4 text-sm text-gray-300 transition">
+            Explain svchost.exe and its expected parent process.
+          </button>
+
+          <button class="quickPrompt text-left bg-gray-950 border border-gray-800 hover:border-blue-600 rounded-xl p-4 text-sm text-gray-300 transition">
+            Is rundll32.exe a LOLBin and when should I worry?
+          </button>
+
+          <button class="quickPrompt text-left bg-gray-950 border border-gray-800 hover:border-blue-600 rounded-xl p-4 text-sm text-gray-300 transition">
+            Analyze explorer.exe launching cmd.exe with suspicious arguments.
+          </button>
+        </div>
+              </div>
+
+      <form id="rockyForm" class="border-t border-gray-800 p-4 sm:p-5">
+        <label for="rockyInput" class="sr-only">Ask Rocky</label>
+
+        <div class="flex flex-col sm:flex-row gap-3">
+          <textarea
+            id="rockyInput"
+            rows="2"
+            class="w-full resize-none bg-gray-950 border border-gray-800 rounded-xl p-4 text-gray-200 placeholder-gray-500 focus:outline-none focus:border-blue-600"
+            placeholder="Ask about a process, command line, parent-child relationship, or suspicious activity..."
+          ></textarea>
+
+          <button
+            type="submit"
+            class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-xl font-semibold transition sm:w-36"
+          >
+            Ask Rocky →
+          </button>
+        </div>
+
+        <p class="text-gray-500 text-xs mt-3">
+          Do not submit sensitive internal data, usernames, hostnames, tokens, passwords or personal information.
+        </p>
+      </form>
+
+    </section>
+
+    <section class="mt-8 bg-gray-900 border border-gray-800 rounded-2xl p-6">
+      <h2 class="text-xl font-semibold mb-3">What can Rocky help with?</h2>
+      <p class="text-gray-400 text-sm leading-6 text-justify">
+        Rocky Chat is intended for quick process-behavior checks during SOC analysis. It can help explain common Windows processes, expected parent-child relationships, suspicious execution patterns, LOLBin abuse indicators and command-line behavior. Results should be used as analyst context, not as the only decision point.
+      </p>
+    </section>
+
+    <div class="mt-12 text-center">
+      <a href="index.html" class="inline-block bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold transition">
+        ← Back to Homepage
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="border-t border-gray-800 text-center text-gray-500 py-6 text-sm px-4">
+    © 2025 CyberCroatia.org ·
+    <a href="contact.html" class="hover:text-blue-400">Kontakt</a> ·
+    <a href="https://www.leonoramilisa.com" target="_blank" class="hover:text-blue-400">leonoramilisa.com</a>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById("menuToggle");
+    const menu = document.getElementById("menu");
+
+    menuBtn?.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+
+    const form = document.getElementById("rockyForm");
+    const input = document.getElementById("rockyInput");
+    const chatWindow = document.getElementById("chatWindow");
+    const quickPrompts = document.querySelectorAll(".quickPrompt");
+
+    function escapeHtml(value) {
+      return value
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function addMessage(role, text) {
+      const wrapper = document.createElement("div");
+      wrapper.className = role === "user" ? "flex gap-3 justify-end" : "flex gap-3";
+
+      const avatar = document.createElement("div");
+      avatar.className = "w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center shrink-0";
+      avatar.textContent = role === "user" ? "👤" : "🦝";
+
+      const bubble = document.createElement("div");
+      bubble.className = role === "user"
+        ? "bg-blue-600 rounded-2xl rounded-tr-sm p-4 max-w-3xl"
+        : "bg-gray-800 border border-gray-700 rounded-2xl rounded-tl-sm p-4 max-w-3xl";
+
+      bubble.innerHTML = `<p class="text-sm leading-6 whitespace-pre-wrap">${escapeHtml(text)}</p>`;
+
+      if (role === "user") {
+        wrapper.appendChild(bubble);
+        wrapper.appendChild(avatar);
+      } else {
+        wrapper.appendChild(avatar);
+        wrapper.appendChild(bubble);
+      }
+
+      chatWindow.appendChild(wrapper);
+      chatWindow.scrollTop = chatWindow.scrollHeight;
+    }
+
+    function setLoading(isLoading) {
+      const submitButton = form.querySelector("button[type='submit']");
+      submitButton.disabled = isLoading;
+      submitButton.textContent = isLoading ? "Asking..." : "Ask Rocky →";
+      submitButton.classList.toggle("opacity-60", isLoading);
+      submitButton.classList.toggle("cursor-not-allowed", isLoading);
+    }
+
+    quickPrompts.forEach((button) => {
+      button.addEventListener("click", () => {
+        input.value = button.textContent.trim();
+        input.focus();
+      });
+    });
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const message = input.value.trim();
+
+      if (!message) {
+        return;
+      }
+
+      addMessage("user", message);
+      input.value = "";
+
+      setLoading(true);
+
+      try {
+        /*
+          Next step:
+          Replace this placeholder with your Cloudflare Worker endpoint.
+
+          Example:
+          const response = await fetch("https://rocky-api.cybercroatia.org/chat", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ message })
+          });
+
+          const data = await response.json();
+          addMessage("assistant", data.answer || "No answer returned.");
+        */
+
+        await new Promise((resolve) => setTimeout(resolve, 500));
+
+        addMessage(
+          "assistant",
+          "Rocky endpoint is not connected yet. Next step: connect this page to your Cloudflare Worker so the API key stays hidden."
+        );
+      } catch (error) {
+        addMessage(
+          "assistant",
+          "Something went wrong while contacting Rocky. Please try again later."
+        );
+      } finally {
+        setLoading(false);
+      }
+    });
+  </script>
+
+</body>
+</html>
