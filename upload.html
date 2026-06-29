@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="hr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Upload - CyberCroatia</title>
 
-  <!-- Open Graph / Social meta -->
   <meta property="og:title" content="CyberCroatia – Upload IOC/IOA">
-  <meta property="og:description" content="Pošalji aktualne IOC i IOA indikatore – pojedinačno ili u bulk formatu (CSV, JSON, TXT) – i pomozi zajednici u obrani.">
+  <meta property="og:description" content="Submit current IOC and IOA indicators individually or in bulk format and help the community strengthen cyber defense.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://cybercroatia.org/upload.html">
   <meta property="og:image" content="https://cybercroatia.org/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="CyberCroatia – Zajednica za cyber prijetnje">
+  <meta property="og:image:alt" content="CyberCroatia – Cyber Threat Intelligence Community">
   <meta name="twitter:card" content="summary_large_image">
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -22,11 +22,12 @@
 
 <body class="bg-gray-950 text-gray-100 font-sans">
 
-  <!-- Navigacija -->
   <header class="border-b border-gray-800">
     <nav class="container mx-auto flex flex-wrap justify-between items-center p-4">
       <a href="index.html" class="text-2xl font-bold text-blue-500">CyberCroatia</a>
+
       <button id="menuToggle" class="block md:hidden text-gray-300 focus:outline-none">☰</button>
+
       <ul id="menu" class="hidden md:flex space-x-6 text-sm w-full md:w-auto mt-4 md:mt-0">
         <li><a href="index.html" class="hover:text-blue-400 block py-2 md:py-0">Home</a></li>
         <li><a href="upload.html" class="text-blue-400 block py-2 md:py-0">Upload</a></li>
@@ -38,65 +39,76 @@
     </nav>
   </header>
 
-  <!-- Upload forma -->
   <section class="container mx-auto py-20 px-6 sm:px-8 md:px-12 text-center">
-    <h1 class="text-4xl sm:text-5xl font-bold mb-6">Pošalji IOC ili IOA</h1>
+
+    <h1 class="text-4xl sm:text-5xl font-bold mb-6">Submit IOC or IOA</h1>
+
     <p class="text-gray-400 mb-10 max-w-2xl mx-auto text-justify">
-      Dodaj pojedinačno ili učitaj datoteku (CSV, JSON, TXT). Preporučeno: 
-       (npr. 1.2.3.4, http://…, primjerdomena.com, www.primjer.com).
-      Ne dijeli PII ili osjetljive interne podatke. 
-      NEKI UNOSI ĆE BITI AUTOMATSKI OBJAVLJENI,
-      A NEKI IDU NA REVIEW ZBOG SIGURNOSNIH RAZLOGA, ZA SVA PITANJA SE JAVITI NA: info@cybercroatia.org.
-      Odgovor na zahtjev za odobrenjem IOC-a je 2 sata.
+      Add indicators manually or upload a file in CSV, JSON or TXT format.
+      Recommended values include IP addresses, URLs, domains, hashes and relevant activity indicators.
+      Do not share PII, credentials or sensitive internal information.
+      Some submissions may be published automatically, while others may go through review for security reasons.
+      For questions, contact info@cybercroatia.org.
     </p>
 
     <form id="uploadForm" class="bg-gray-900 border border-gray-800 rounded-2xl p-8 max-w-xl mx-auto text-left" novalidate>
+
       <label class="block mb-4" for="iocText">
-        <span class="text-gray-300">Unesi IOC/IOA ručno</span>
-        <textarea id="iocText"
-                  class="w-full mt-2 p-3 bg-gray-800 rounded-md text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-600"
-                  rows="5"
-                  placeholder="Primjer (svaki unos odvoji novim redom ili zarezom):&#10;8.8.8.8&#10;malicious-domain.com&#10;http://bad.example&#10;4f5a2b9c... (SHA256)"></textarea>
+        <span class="text-gray-300">Enter IOC/IOA manually</span>
+        <textarea
+          id="iocText"
+          class="w-full mt-2 p-3 bg-gray-800 rounded-md text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-600"
+          rows="5"
+          placeholder="Example, separate each entry with a new line or comma:&#10;8.8.8.8&#10;malicious-domain.com&#10;http://bad.example&#10;4f5a2b9c... (SHA256)">
+        </textarea>
       </label>
 
-      <div class="my-6 text-gray-500 text-sm text-center">— ili —</div>
+      <div class="my-6 text-gray-500 text-sm text-center">— or —</div>
 
       <label class="block mb-1" for="iocFile">
-        <span class="text-gray-300">Upload datoteka</span>
+        <span class="text-gray-300">Upload file</span>
       </label>
-      <p id="fileHelp" class="text-gray-500 text-xs mb-2">
-        Podržano: .csv, .json, .txt · Možeš dodati više datoteka.
-      </p>
-      <input id="iocFile"
-             type="file"
-             class="w-full p-2 bg-gray-800 rounded-md text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600"
-             accept=".csv,.json,.txt"
-             multiple aria-describedby="fileHelp" />
 
-      <button type="submit"
-              class="mt-6 bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold w-full transition-colors">
-        Pošalji
+      <p id="fileHelp" class="text-gray-500 text-xs mb-2">
+        Supported formats: .csv, .json, .txt · Multiple files are supported.
+      </p>
+
+      <input
+        id="iocFile"
+        type="file"
+        class="w-full p-2 bg-gray-800 rounded-md text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600"
+        accept=".csv,.json,.txt"
+        multiple
+        aria-describedby="fileHelp"
+      />
+
+      <button
+        type="submit"
+        class="mt-6 bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold w-full transition-colors">
+        Submit
       </button>
+
     </form>
 
-    <!-- Back to Homepage -->
     <div class="mt-12 text-center">
       <a href="index.html" class="inline-block bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold">
-        Back to Homepage
+        ← Back to Homepage
       </a>
     </div>
+
   </section>
 
-  <!-- Footer -->
   <footer class="border-t border-gray-800 text-center text-gray-500 py-6 text-sm px-4">
     © 2025 CyberCroatia.org · 
-    <a href="https://www.leonoramilisa.com" target="_blank" class="hover:text-blue-400">leonoramilisa.com</a>
+    <a href="https://www.leonoramilisa.com" target="_blank" class="hover:text-blue-400">
+      leonoramilisa.com
+    </a>
   </footer>
 
-  <!-- Skripta za mobilni meni -->
   <script>
     const menuBtn = document.getElementById("menuToggle");
     const menu = document.getElementById("menu");
+
     menuBtn?.addEventListener("click", () => {
       menu.classList.toggle("hidden");
     });
