@@ -1,5 +1,3 @@
-Part 1/2:
-
 <!DOCTYPE html>
 <html lang="hr">
 <head>
@@ -16,6 +14,26 @@ Part 1/2:
   <meta name="twitter:card" content="summary_large_image">
 
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .rocky-glow {
+      filter: drop-shadow(0 0 22px rgba(34, 211, 238, 0.35))
+              drop-shadow(0 0 45px rgba(59, 130, 246, 0.18));
+    }
+
+    .rocky-card::before {
+      content: "";
+      position: absolute;
+      top: -120px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 420px;
+      height: 240px;
+      background: radial-gradient(circle, rgba(34,211,238,0.20) 0%, rgba(59,130,246,0.10) 35%, rgba(15,23,42,0) 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+  </style>
 </head>
 
 <body class="bg-gray-950 text-gray-100 font-sans min-h-screen">
@@ -45,7 +63,7 @@ Part 1/2:
       </a>
     </div>
 
-    <section class="text-center mb-20">
+    <section class="text-center mb-36">
       <h1 class="text-4xl sm:text-5xl font-bold mb-4">Rocky Chat</h1>
 
       <p class="text-gray-400 max-w-2xl mx-auto text-base sm:text-lg">
@@ -53,18 +71,18 @@ Part 1/2:
       </p>
     </section>
 
-    <section class="relative bg-gray-900 border border-gray-800 rounded-2xl shadow-xl pt-20 overflow-visible">
+    <section class="rocky-card relative bg-[#121a2a] border border-gray-700/80 rounded-3xl shadow-2xl pt-24 overflow-visible">
 
-      <div class="absolute left-1/2 -translate-x-1/2 -top-24 z-20 pointer-events-none">
+      <div class="absolute left-1/2 -translate-x-1/2 -top-[128px] z-20 pointer-events-none">
         <img
           src="assets/rocky-raccoon-logo.png"
           alt="Rocky Raccoon"
-          class="h-36 sm:h-44 w-auto drop-shadow-2xl select-none"
+          class="w-[260px] sm:w-[340px] h-auto rocky-glow select-none"
           draggable="false"
         >
       </div>
 
-      <div class="border-b border-gray-800 p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+      <div class="border-b border-gray-800/80 p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 relative z-10">
         <div>
           <h2 class="text-xl font-semibold">The Cyber Raccoon</h2>
           <p class="text-gray-500 text-sm">
@@ -78,13 +96,14 @@ Part 1/2:
         </div>
       </div>
 
-      <div id="chatWindow" class="p-5 sm:p-6 space-y-5 min-h-[420px] max-h-[620px] overflow-y-auto">
+      <div id="chatWindow" class="p-5 sm:p-6 space-y-5 min-h-[420px] max-h-[620px] overflow-y-auto relative z-10">
 
         <div class="flex gap-3">
           <div class="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center shrink-0 overflow-hidden">
             <img src="assets/rocky-raccoon-logo.png" alt="Rocky" class="w-full h-full object-cover">
           </div>
-          <div class="bg-gray-800 border border-gray-700 rounded-2xl rounded-tl-sm p-4 max-w-3xl">
+
+          <div class="bg-gray-800/90 border border-gray-700 rounded-2xl rounded-tl-sm p-4 max-w-3xl">
             <p class="text-gray-200 text-sm leading-6">
               Hi, I'm Rocky. Paste a process, command line, or parent-child chain and I’ll help you check whether it looks normal, suspicious, or worth deeper investigation.
             </p>
@@ -92,32 +111,32 @@ Part 1/2:
         </div>
 
         <div class="grid gap-3 sm:grid-cols-2">
-          <button type="button" class="quickPrompt text-left bg-gray-950 border border-gray-800 hover:border-blue-600 rounded-xl p-4 text-sm text-gray-300 transition">
+          <button type="button" class="quickPrompt text-left bg-gray-950/80 border border-gray-800 hover:border-cyan-600 rounded-xl p-4 text-sm text-gray-300 transition">
             Is powershell.exe spawned by excel.exe suspicious?
           </button>
 
-          <button type="button" class="quickPrompt text-left bg-gray-950 border border-gray-800 hover:border-blue-600 rounded-xl p-4 text-sm text-gray-300 transition">
+          <button type="button" class="quickPrompt text-left bg-gray-950/80 border border-gray-800 hover:border-cyan-600 rounded-xl p-4 text-sm text-gray-300 transition">
             Explain svchost.exe and its expected parent process.
           </button>
 
-          <button type="button" class="quickPrompt text-left bg-gray-950 border border-gray-800 hover:border-blue-600 rounded-xl p-4 text-sm text-gray-300 transition">
+          <button type="button" class="quickPrompt text-left bg-gray-950/80 border border-gray-800 hover:border-cyan-600 rounded-xl p-4 text-sm text-gray-300 transition">
             Is rundll32.exe a LOLBin and when should I worry?
           </button>
 
-          <button type="button" class="quickPrompt text-left bg-gray-950 border border-gray-800 hover:border-blue-600 rounded-xl p-4 text-sm text-gray-300 transition">
+          <button type="button" class="quickPrompt text-left bg-gray-950/80 border border-gray-800 hover:border-cyan-600 rounded-xl p-4 text-sm text-gray-300 transition">
             Analyze explorer.exe launching cmd.exe with suspicious arguments.
           </button>
         </div>
       </div>
 
-      <form id="rockyForm" class="border-t border-gray-800 p-4 sm:p-5">
+      <form id="rockyForm" class="border-t border-gray-800/80 p-4 sm:p-5 relative z-10">
         <label for="rockyInput" class="sr-only">Ask Rocky</label>
 
         <div class="flex flex-col sm:flex-row gap-3">
           <textarea
             id="rockyInput"
             rows="2"
-            class="w-full resize-none bg-gray-950 border border-gray-800 rounded-xl p-4 text-gray-200 placeholder-gray-500 focus:outline-none focus:border-blue-600"
+            class="w-full resize-none bg-gray-950/80 border border-gray-800 rounded-xl p-4 text-gray-200 placeholder-gray-500 focus:outline-none focus:border-cyan-500"
             placeholder="Ask about a process, command line, parent-child relationship, or suspicious activity..."
           ></textarea>
 
@@ -128,7 +147,8 @@ Part 1/2:
             Ask Rocky →
           </button>
         </div>
-                <p class="text-gray-500 text-xs mt-3 text-center">
+
+        <p class="text-gray-500 text-xs mt-3 text-center">
           Powered by
           <a
             href="https://rockyraccoon.io/?utm_source=cybercroatia&utm_medium=referral&utm_campaign=rocky-embed"
@@ -142,12 +162,13 @@ Part 1/2:
       </form>
 
     </section>
-
-    <section class="mt-8 bg-gray-900 border border-gray-800 rounded-2xl p-6">
+        <section class="mt-8 bg-gray-900 border border-gray-800 rounded-2xl p-6">
       <h2 class="text-xl font-semibold mb-3">What can Rocky help with?</h2>
+
       <p class="text-gray-400 text-sm leading-6 text-justify">
         Rocky Chat is intended for quick process-behavior checks during SOC analysis. It can help explain common Windows processes, expected parent-child relationships, suspicious execution patterns, LOLBin abuse indicators and command-line behavior. Results should be used as analyst context, not as the only decision point.
       </p>
+
       <p class="text-gray-500 text-xs mt-2 text-center max-w-2xl mx-auto">
         Rocky Chat uses the official Rocky Raccoon API for behavioral process intelligence. Responses are intended to support security investigations and should always be validated against your environment.
       </p>
@@ -216,7 +237,7 @@ Part 1/2:
       bubble.className =
         role === "user"
           ? "bg-blue-600 rounded-2xl rounded-tr-sm p-4 max-w-3xl"
-          : "bg-gray-800 border border-gray-700 rounded-2xl rounded-tl-sm p-4 max-w-3xl";
+          : "bg-gray-800/90 border border-gray-700 rounded-2xl rounded-tl-sm p-4 max-w-3xl";
 
       bubble.innerHTML = `<p class="text-sm leading-6 whitespace-pre-wrap">${escapeHtml(text)}</p>`;
 
