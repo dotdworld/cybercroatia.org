@@ -14,26 +14,6 @@
   <meta name="twitter:card" content="summary_large_image">
 
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <style>
-    .rocky-glow {
-      filter: drop-shadow(0 0 22px rgba(34, 211, 238, 0.35))
-              drop-shadow(0 0 45px rgba(59, 130, 246, 0.18));
-    }
-
-    .rocky-card::before {
-      content: "";
-      position: absolute;
-      top: -120px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 420px;
-      height: 240px;
-      background: radial-gradient(circle, rgba(34,211,238,0.20) 0%, rgba(59,130,246,0.10) 35%, rgba(15,23,42,0) 70%);
-      pointer-events: none;
-      z-index: 1;
-    }
-  </style>
 </head>
 
 <body class="bg-gray-950 text-gray-100 font-sans min-h-screen">
@@ -63,7 +43,7 @@
       </a>
     </div>
 
-    <section class="text-center mb-36">
+    <section class="text-center mb-10">
       <h1 class="text-4xl sm:text-5xl font-bold mb-4">Rocky Chat</h1>
 
       <p class="text-gray-400 max-w-2xl mx-auto text-base sm:text-lg">
@@ -71,18 +51,9 @@
       </p>
     </section>
 
-    <section class="rocky-card relative bg-[#121a2a] border border-gray-700/80 rounded-3xl shadow-2xl pt-24 overflow-visible">
+    <section class="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden shadow-xl">
 
-      <div class="absolute left-1/2 -translate-x-1/2 -top-[128px] z-20 pointer-events-none">
-        <img
-          src="assets/rocky-raccoon-logo.png"
-          alt="Rocky Raccoon"
-          class="w-[260px] sm:w-[340px] h-auto rocky-glow select-none"
-          draggable="false"
-        >
-      </div>
-
-      <div class="border-b border-gray-800/80 p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 relative z-10">
+      <div class="border-b border-gray-800 p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div>
           <h2 class="text-xl font-semibold">The Cyber Raccoon</h2>
           <p class="text-gray-500 text-sm">
@@ -92,18 +63,15 @@
 
         <div class="inline-flex items-center gap-2 text-xs text-green-400 bg-green-950/40 border border-green-900 px-3 py-1 rounded-full w-fit">
           <span class="w-2 h-2 rounded-full bg-green-400"></span>
-          Ready
+          Connected to Rocky API
         </div>
       </div>
 
-      <div id="chatWindow" class="p-5 sm:p-6 space-y-5 min-h-[420px] max-h-[620px] overflow-y-auto relative z-10">
+      <div id="chatWindow" class="p-5 sm:p-6 space-y-5 min-h-[420px] max-h-[620px] overflow-y-auto">
 
         <div class="flex gap-3">
-          <div class="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center shrink-0 overflow-hidden">
-            <img src="assets/rocky-raccoon-logo.png" alt="Rocky" class="w-full h-full object-cover">
-          </div>
-
-          <div class="bg-gray-800/90 border border-gray-700 rounded-2xl rounded-tl-sm p-4 max-w-3xl">
+          <div class="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center shrink-0">🦝</div>
+          <div class="bg-gray-800 border border-gray-700 rounded-2xl rounded-tl-sm p-4 max-w-3xl">
             <p class="text-gray-200 text-sm leading-6">
               Hi, I'm Rocky. Paste a process, command line, or parent-child chain and I’ll help you check whether it looks normal, suspicious, or worth deeper investigation.
             </p>
@@ -111,66 +79,78 @@
         </div>
 
         <div class="grid gap-3 sm:grid-cols-2">
-          <button type="button" class="quickPrompt text-left bg-gray-950/80 border border-gray-800 hover:border-cyan-600 rounded-xl p-4 text-sm text-gray-300 transition">
+          <button type="button" class="quickPrompt text-left bg-gray-950 border border-gray-800 hover:border-blue-600 rounded-xl p-4 text-sm text-gray-300 transition">
             Is powershell.exe spawned by excel.exe suspicious?
           </button>
 
-          <button type="button" class="quickPrompt text-left bg-gray-950/80 border border-gray-800 hover:border-cyan-600 rounded-xl p-4 text-sm text-gray-300 transition">
+          <button type="button" class="quickPrompt text-left bg-gray-950 border border-gray-800 hover:border-blue-600 rounded-xl p-4 text-sm text-gray-300 transition">
             Explain svchost.exe and its expected parent process.
           </button>
 
-          <button type="button" class="quickPrompt text-left bg-gray-950/80 border border-gray-800 hover:border-cyan-600 rounded-xl p-4 text-sm text-gray-300 transition">
+          <button type="button" class="quickPrompt text-left bg-gray-950 border border-gray-800 hover:border-blue-600 rounded-xl p-4 text-sm text-gray-300 transition">
             Is rundll32.exe a LOLBin and when should I worry?
           </button>
 
-          <button type="button" class="quickPrompt text-left bg-gray-950/80 border border-gray-800 hover:border-cyan-600 rounded-xl p-4 text-sm text-gray-300 transition">
+          <button type="button" class="quickPrompt text-left bg-gray-950 border border-gray-800 hover:border-blue-600 rounded-xl p-4 text-sm text-gray-300 transition">
             Analyze explorer.exe launching cmd.exe with suspicious arguments.
           </button>
         </div>
       </div>
+            <div class="relative border-t border-gray-800">
 
-      <form id="rockyForm" class="border-t border-gray-800/80 p-4 sm:p-5 relative z-10">
-        <label for="rockyInput" class="sr-only">Ask Rocky</label>
+        <img
+          src="assets/rocky-raccoon-logo.png"
+          alt="Rocky Raccoon"
+          class="absolute -top-20 left-6 sm:left-10 h-28 w-auto z-20 pointer-events-none select-none drop-shadow-2xl"
+          draggable="false"
+        >
 
-        <div class="flex flex-col sm:flex-row gap-3">
-          <textarea
-            id="rockyInput"
-            rows="2"
-            class="w-full resize-none bg-gray-950/80 border border-gray-800 rounded-xl p-4 text-gray-200 placeholder-gray-500 focus:outline-none focus:border-cyan-500"
-            placeholder="Ask about a process, command line, parent-child relationship, or suspicious activity..."
-          ></textarea>
+        <form id="rockyForm" class="pt-16 p-5">
+          <label for="rockyInput" class="sr-only">Ask Rocky</label>
 
-          <button
-            type="submit"
-            class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-xl font-semibold transition sm:w-36"
-          >
-            Ask Rocky →
-          </button>
-        </div>
+          <div class="flex flex-col gap-3">
+            <textarea
+              id="rockyInput"
+              rows="4"
+              class="w-full resize-none bg-gray-950 border border-gray-700 rounded-3xl p-6 text-gray-200 placeholder-gray-500 focus:outline-none focus:border-blue-600"
+              placeholder="Ask about a process, command line, parent-child relationship, or suspicious activity..."
+            ></textarea>
 
-        <p class="text-gray-500 text-xs mt-3 text-center">
-          Powered by
-          <a
-            href="https://rockyraccoon.io/?utm_source=cybercroatia&utm_medium=referral&utm_campaign=rocky-embed"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-blue-400 hover:text-blue-300 underline"
-          >
-            Rocky Raccoon
-          </a>
-        </p>
-      </form>
+            <div class="flex justify-end">
+              <button
+                type="submit"
+                class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-xl font-semibold transition"
+              >
+                Ask Rocky →
+              </button>
+            </div>
+          </div>
+
+          <p class="text-gray-500 text-xs mt-4 text-center">
+            Powered by
+            <a
+              href="https://rockyraccoon.io/?utm_source=cybercroatia&utm_medium=referral&utm_campaign=rocky-embed"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-blue-400 hover:text-blue-300 underline"
+            >
+              Rocky Raccoon
+            </a>
+          </p>
+
+          <p class="text-gray-500 text-xs mt-2 text-center max-w-2xl mx-auto">
+            Rocky Chat uses the official Rocky Raccoon API for behavioral process intelligence. Responses are intended to support security investigations and should always be validated against your environment.
+          </p>
+        </form>
+
+      </div>
 
     </section>
-        <section class="mt-8 bg-gray-900 border border-gray-800 rounded-2xl p-6">
-      <h2 class="text-xl font-semibold mb-3">What can Rocky help with?</h2>
 
+    <section class="mt-8 bg-gray-900 border border-gray-800 rounded-2xl p-6">
+      <h2 class="text-xl font-semibold mb-3">What can Rocky help with?</h2>
       <p class="text-gray-400 text-sm leading-6 text-justify">
         Rocky Chat is intended for quick process-behavior checks during SOC analysis. It can help explain common Windows processes, expected parent-child relationships, suspicious execution patterns, LOLBin abuse indicators and command-line behavior. Results should be used as analyst context, not as the only decision point.
-      </p>
-
-      <p class="text-gray-500 text-xs mt-2 text-center max-w-2xl mx-auto">
-        Rocky Chat uses the official Rocky Raccoon API for behavioral process intelligence. Responses are intended to support security investigations and should always be validated against your environment.
       </p>
     </section>
 
@@ -221,23 +201,14 @@
 
       const avatar = document.createElement("div");
       avatar.className =
-        "w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center shrink-0 overflow-hidden";
-
-      if (role === "user") {
-        avatar.textContent = "👤";
-      } else {
-        const img = document.createElement("img");
-        img.src = "assets/rocky-raccoon-logo.png";
-        img.alt = "Rocky";
-        img.className = "w-full h-full object-cover";
-        avatar.appendChild(img);
-      }
+        "w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center shrink-0";
+      avatar.textContent = role === "user" ? "👤" : "🦝";
 
       const bubble = document.createElement("div");
       bubble.className =
         role === "user"
           ? "bg-blue-600 rounded-2xl rounded-tr-sm p-4 max-w-3xl"
-          : "bg-gray-800/90 border border-gray-700 rounded-2xl rounded-tl-sm p-4 max-w-3xl";
+          : "bg-gray-800 border border-gray-700 rounded-2xl rounded-tl-sm p-4 max-w-3xl";
 
       bubble.innerHTML = `<p class="text-sm leading-6 whitespace-pre-wrap">${escapeHtml(text)}</p>`;
 
@@ -252,8 +223,7 @@
       chatWindow.appendChild(wrapper);
       chatWindow.scrollTop = chatWindow.scrollHeight;
     }
-
-    function setLoading(isLoading) {
+        function setLoading(isLoading) {
       const submitButton = form.querySelector("button[type='submit']");
       submitButton.disabled = isLoading;
       submitButton.textContent = isLoading ? "Asking..." : "Ask Rocky →";
@@ -281,7 +251,11 @@
         lines.push(`\nSuspicious indicators:\n${data.intel.suspicious_indicators || "N/A"}`);
         lines.push(`\nAbuse patterns:\n${data.intel.abuse_patterns || "N/A"}`);
         lines.push(`\nDetection guidance:\n${data.intel.detection_guidance || "N/A"}`);
-        if (data.intel.false_positive_notes) lines.push(`\nFalse positive notes:\n${data.intel.false_positive_notes}`);
+
+        if (data.intel.false_positive_notes) {
+          lines.push(`\nFalse positive notes:\n${data.intel.false_positive_notes}`);
+        }
+
         if (Array.isArray(data.intel.mitre_techniques) && data.intel.mitre_techniques.length) {
           lines.push(`\nMITRE techniques: ${data.intel.mitre_techniques.join(", ")}`);
         }
