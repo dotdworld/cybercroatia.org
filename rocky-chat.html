@@ -38,32 +38,30 @@
   <main class="container mx-auto px-6 sm:px-8 md:px-12 py-12 max-w-5xl">
 
     <div class="mb-8">
-      <a href="index.html" class="text-orange-400 hover:text-orange-300 transition text-sm">
+      <a href="index.html" class="text-blue-400 hover:text-blue-300 transition text-sm">
         ← Back to Homepage
       </a>
     </div>
 
     <section class="text-center mb-10">
-
-    <div class="flex justify-center mb-4">
+      <div class="flex justify-center mb-4">
         <img
-            src="assets/rocky-raccoon-logo.png"
-            alt="Rocky Raccoon"
-            class="h-28 w-auto drop-shadow-2xl select-none"
-            draggable="false">
-    </div>
+          src="assets/rocky-raccoon-logo.png"
+          alt="Rocky Raccoon"
+          class="h-28 w-auto drop-shadow-2xl select-none"
+          draggable="false">
+      </div>
 
-    <h1 class="text-4xl sm:text-5xl font-bold mb-4">
+      <h1 class="text-4xl sm:text-5xl font-bold mb-4">
         Rocky Chat
-    </h1>
+      </h1>
 
-    <p class="text-gray-400 max-w-2xl mx-auto text-base sm:text-lg">
+      <p class="text-gray-400 max-w-2xl mx-auto text-base sm:text-lg">
         Let Rocky tell you whether your process is minding its own business... or someone else's.
-    </p>
+      </p>
+    </section>
 
-</section>
-
-<section class="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden shadow-xl">
+    <section class="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden shadow-xl">
 
       <div class="border-b border-gray-800 p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div>
@@ -108,54 +106,41 @@
           </button>
         </div>
       </div>
-            <div class="relative border-t border-gray-800">
+            <form id="rockyForm" class="border-t border-gray-800 p-4 sm:p-5">
+        <label for="rockyInput" class="sr-only">Ask Rocky</label>
 
-        <img
-          src="assets/rocky-raccoon-logo.png"
-          alt="Rocky Raccoon"
-          class="absolute -top-20 left-6 sm:left-10 h-28 w-auto z-20 pointer-events-none select-none drop-shadow-2xl"
-          draggable="false"
-        >
+        <div class="flex flex-col sm:flex-row gap-3">
+          <textarea
+            id="rockyInput"
+            rows="2"
+            class="w-full resize-none bg-gray-950 border border-gray-800 rounded-xl p-4 text-gray-200 placeholder-gray-500 focus:outline-none focus:border-blue-600"
+            placeholder="Ask about a process, command line, parent-child relationship, or suspicious activity..."
+          ></textarea>
 
-        <form id="rockyForm" class="pt-16 p-5">
-          <label for="rockyInput" class="sr-only">Ask Rocky</label>
+          <button
+            type="submit"
+            class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-xl font-semibold transition sm:w-36"
+          >
+            Ask Rocky →
+          </button>
+        </div>
 
-          <div class="flex flex-col gap-3">
-            <textarea
-              id="rockyInput"
-              rows="4"
-              class="w-full resize-none bg-gray-950 border border-gray-700 rounded-3xl p-6 text-gray-200 placeholder-gray-500 focus:outline-none focus:border-blue-600"
-              placeholder="Ask about a process, command line, parent-child relationship, or suspicious activity..."
-            ></textarea>
+        <p class="text-gray-500 text-xs mt-3 text-center">
+          Powered by
+          <a
+            href="https://rockyraccoon.io/?utm_source=cybercroatia&utm_medium=referral&utm_campaign=rocky-embed"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-400 hover:text-blue-300 underline"
+          >
+            Rocky Raccoon
+          </a>
+        </p>
 
-            <div class="flex justify-end">
-              <button
-                type="submit"
-                class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-xl font-semibold transition"
-              >
-                Ask Rocky →
-              </button>
-            </div>
-          </div>
-
-          <p class="text-gray-500 text-xs mt-4 text-center">
-            Powered by
-            <a
-              href="https://rockyraccoon.io/?utm_source=cybercroatia&utm_medium=referral&utm_campaign=rocky-embed"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-blue-400 hover:text-blue-300 underline"
-            >
-              Rocky Raccoon
-            </a>
-          </p>
-
-          <p class="text-gray-500 text-xs mt-2 text-center max-w-2xl mx-auto">
-            Rocky Chat uses the official Rocky Raccoon API for behavioral process intelligence. Responses are intended to support security investigations and should always be validated against your environment.
-          </p>
-        </form>
-
-      </div>
+        <p class="text-gray-500 text-xs mt-2 text-center max-w-2xl mx-auto">
+          Rocky Chat uses the official Rocky Raccoon API for behavioral process intelligence. Responses are intended to support security investigations and should always be validated against your environment.
+        </p>
+      </form>
 
     </section>
 
@@ -235,15 +220,15 @@
       chatWindow.appendChild(wrapper);
       chatWindow.scrollTop = chatWindow.scrollHeight;
     }
-        function setLoading(isLoading) {
+
+    function setLoading(isLoading) {
       const submitButton = form.querySelector("button[type='submit']");
       submitButton.disabled = isLoading;
       submitButton.textContent = isLoading ? "Asking..." : "Ask Rocky →";
       submitButton.classList.toggle("opacity-60", isLoading);
       submitButton.classList.toggle("cursor-not-allowed", isLoading);
     }
-
-    function formatRockyJson(data) {
+        function formatRockyJson(data) {
       const lines = [];
 
       if (data.process_name) lines.push(`Process: ${data.process_name}`);
