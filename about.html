@@ -20,6 +20,7 @@
     <nav class="container mx-auto flex flex-wrap justify-between items-center p-4">
       <a href="index.html" class="text-2xl font-bold text-blue-500">CyberCroatia</a>
       <button id="menuToggle" class="block md:hidden text-gray-300 focus:outline-none">☰</button>
+
       <ul id="menu" class="hidden md:flex space-x-6 text-sm w-full md:w-auto mt-4 md:mt-0">
         <li><a href="index.html" class="hover:text-blue-400 block py-2 md:py-0">Home</a></li>
         <li><a href="upload.html" class="hover:text-blue-400 block py-2 md:py-0">Upload</a></li>
@@ -55,11 +56,13 @@
         <h3 class="font-semibold mb-2">Submit indicators</h3>
         <p class="text-gray-300 text-sm">Upload IOC/IOA indicators individually or in bulk format (CSV/JSON/TXT).</p>
       </div>
+
       <div class="bg-gray-900 border border-gray-800 rounded-xl p-6 text-justify">
         <div class="text-sm text-gray-400 mb-2">Step 2</div>
         <h3 class="font-semibold mb-2">Automatic processing</h3>
         <p class="text-gray-300 text-sm">The system validates and stores submissions in a shared repository. Personal data is not collected.</p>
       </div>
+
       <div class="bg-gray-900 border border-gray-800 rounded-xl p-6 text-justify">
         <div class="text-sm text-gray-400 mb-2">Step 3</div>
         <h3 class="font-semibold mb-2">Shared visibility</h3>
@@ -80,6 +83,7 @@
           <li>Email senders or reply-to addresses, without personal data</li>
         </ul>
       </div>
+
       <div class="bg-gray-900 border border-gray-800 rounded-xl p-6 text-justify">
         <h3 class="font-semibold mb-2">IOA</h3>
         <ul class="list-disc list-inside text-gray-300 text-sm space-y-1">
@@ -99,10 +103,12 @@
         <h3 class="font-semibold mb-2">Openness</h3>
         <p class="text-gray-300 text-sm">Threat data is useful when it is accessible — that is why we make it visible and reusable.</p>
       </div>
+
       <div class="bg-gray-900 border border-gray-800 rounded-xl p-6 text-justify">
         <h3 class="font-semibold mb-2">Security & Privacy</h3>
         <p class="text-gray-300 text-sm">We do not collect PII. Please do not share sensitive internal information.</p>
       </div>
+
       <div class="bg-gray-900 border border-gray-800 rounded-xl p-6 text-justify">
         <h3 class="font-semibold mb-2">Quality</h3>
         <p class="text-gray-300 text-sm">We prefer clear, verifiable indicators. If you are unsure, mark the submission as suspicious in the description.</p>
@@ -110,23 +116,28 @@
     </div>
   </section>
 
-  <section class="container mx-auto px-6 sm:px-8 md:px-12 py-12 text-center">
-    <a href="upload.html" class="inline-block bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold">
-      Submit Current Indicators
-    </a>
-    <p class="text-gray-400 text-sm mt-3 text-justify max-w-xl mx-auto">
-      Your contribution may help someone prevent an attack.
-    </p>
+  <section class="container mx-auto px-6 sm:px-8 md:px-12 py-12">
+    <div class="flex flex-col items-center justify-center text-center">
+      <a href="upload.html" class="inline-block bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold">
+        Submit Current Indicators
+      </a>
+
+      <p class="text-gray-400 text-sm mt-4 text-center max-w-xl">
+        Your contribution may help someone prevent an attack.
+      </p>
+    </div>
   </section>
 
-  <section class="container mx-auto px-6 pb-20 text-center">
-    <a href="index.html" class="inline-block bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold">
-      ← Back to Homepage
-    </a>
+  <section class="container mx-auto px-6 pb-20">
+    <div class="flex justify-center">
+      <a href="index.html" class="inline-block bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold">
+        ← Back to Homepage
+      </a>
+    </div>
   </section>
 
   <footer class="border-t border-gray-800 text-center text-gray-500 py-6 text-sm px-4">
-    © 2025 CyberCroatia.org · 
+    © 2025 CyberCroatia.org ·
     <a href="contact.html" class="hover:text-blue-400">Contact</a> ·
     <a href="https://www.leonoramilisa.com" target="_blank" class="hover:text-blue-400">leonoramilisa.com</a>
   </footer>
@@ -134,6 +145,7 @@
   <script>
     const menuBtn = document.getElementById("menuToggle");
     const menu = document.getElementById("menu");
+
     menuBtn?.addEventListener("click", () => {
       menu.classList.toggle("hidden");
     });
