@@ -1,3 +1,5 @@
+Part 1/2:
+
 <!DOCTYPE html>
 <html lang="hr">
 <head>
@@ -43,15 +45,7 @@
       </a>
     </div>
 
-    <section class="text-center mb-10">
-      <div class="flex justify-center mb-4">
-          <img
-              src="assets/rocky-raccoon-logo.png"
-              alt="Rocky Raccoon"
-              class="h-28 w-auto drop-shadow-2xl select-none"
-              draggable="false">
-      </div>
-
+    <section class="text-center mb-20">
       <h1 class="text-4xl sm:text-5xl font-bold mb-4">Rocky Chat</h1>
 
       <p class="text-gray-400 max-w-2xl mx-auto text-base sm:text-lg">
@@ -59,7 +53,16 @@
       </p>
     </section>
 
-    <section class="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden shadow-xl">
+    <section class="relative bg-gray-900 border border-gray-800 rounded-2xl shadow-xl pt-20 overflow-visible">
+
+      <div class="absolute left-1/2 -translate-x-1/2 -top-24 z-20 pointer-events-none">
+        <img
+          src="assets/rocky-raccoon-logo.png"
+          alt="Rocky Raccoon"
+          class="h-36 sm:h-44 w-auto drop-shadow-2xl select-none"
+          draggable="false"
+        >
+      </div>
 
       <div class="border-b border-gray-800 p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div>
@@ -78,7 +81,9 @@
       <div id="chatWindow" class="p-5 sm:p-6 space-y-5 min-h-[420px] max-h-[620px] overflow-y-auto">
 
         <div class="flex gap-3">
-          <div class="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center shrink-0">🦝</div>
+          <div class="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center shrink-0 overflow-hidden">
+            <img src="assets/rocky-raccoon-logo.png" alt="Rocky" class="w-full h-full object-cover">
+          </div>
           <div class="bg-gray-800 border border-gray-700 rounded-2xl rounded-tl-sm p-4 max-w-3xl">
             <p class="text-gray-200 text-sm leading-6">
               Hi, I'm Rocky. Paste a process, command line, or parent-child chain and I’ll help you check whether it looks normal, suspicious, or worth deeper investigation.
@@ -123,8 +128,7 @@
             Ask Rocky →
           </button>
         </div>
-
-        <p class="text-gray-500 text-xs mt-3 text-center">
+                <p class="text-gray-500 text-xs mt-3 text-center">
           Powered by
           <a
             href="https://rockyraccoon.io/?utm_source=cybercroatia&utm_medium=referral&utm_campaign=rocky-embed"
@@ -156,7 +160,8 @@
     </div>
 
   </main>
-    <footer class="border-t border-gray-800 text-center text-gray-500 py-6 text-sm px-4">
+
+  <footer class="border-t border-gray-800 text-center text-gray-500 py-6 text-sm px-4">
     © 2025 CyberCroatia.org ·
     <a href="contact.html" class="hover:text-blue-400">Kontakt</a> ·
     <a href="https://www.leonoramilisa.com" target="_blank" class="hover:text-blue-400">
@@ -195,8 +200,17 @@
 
       const avatar = document.createElement("div");
       avatar.className =
-        "w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center shrink-0";
-      avatar.textContent = role === "user" ? "👤" : "🦝";
+        "w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center shrink-0 overflow-hidden";
+
+      if (role === "user") {
+        avatar.textContent = "👤";
+      } else {
+        const img = document.createElement("img");
+        img.src = "assets/rocky-raccoon-logo.png";
+        img.alt = "Rocky";
+        img.className = "w-full h-full object-cover";
+        avatar.appendChild(img);
+      }
 
       const bubble = document.createElement("div");
       bubble.className =
@@ -225,61 +239,63 @@
       submitButton.classList.toggle("opacity-60", isLoading);
       submitButton.classList.toggle("cursor-not-allowed", isLoading);
     }
-    function formatRockyJson(data) {
-  const lines = [];
 
-    if (data.process_name) lines.push(`Process: ${data.process_name}`);
-    if (data.description) lines.push(`\nDescription:\n${data.description}`);
-  
-    if (data.classification) {
-      lines.push(`\nClassification:`);
-      if (data.classification.category) lines.push(`Category: ${data.classification.category}`);
-      if (data.classification.publisher) lines.push(`Publisher: ${data.classification.publisher}`);
-      if (typeof data.classification.is_lolbin === "boolean") lines.push(`LOLBin: ${data.classification.is_lolbin ? "Yes" : "No"}`);
-      if (data.classification.risk_level) lines.push(`Risk level: ${data.classification.risk_level}`);
-      if (data.classification.expected_parent) lines.push(`Expected parent: ${data.classification.expected_parent}`);
-    }
-  
-    if (data.intel) {
-      lines.push(`\nNormal behavior:\n${data.intel.normal_behavior || "N/A"}`);
-      lines.push(`\nSuspicious indicators:\n${data.intel.suspicious_indicators || "N/A"}`);
-      lines.push(`\nAbuse patterns:\n${data.intel.abuse_patterns || "N/A"}`);
-      lines.push(`\nDetection guidance:\n${data.intel.detection_guidance || "N/A"}`);
-      if (data.intel.false_positive_notes) lines.push(`\nFalse positive notes:\n${data.intel.false_positive_notes}`);
-      if (Array.isArray(data.intel.mitre_techniques) && data.intel.mitre_techniques.length) {
-        lines.push(`\nMITRE techniques: ${data.intel.mitre_techniques.join(", ")}`);
+    function formatRockyJson(data) {
+      const lines = [];
+
+      if (data.process_name) lines.push(`Process: ${data.process_name}`);
+      if (data.description) lines.push(`\nDescription:\n${data.description}`);
+
+      if (data.classification) {
+        lines.push(`\nClassification:`);
+        if (data.classification.category) lines.push(`Category: ${data.classification.category}`);
+        if (data.classification.publisher) lines.push(`Publisher: ${data.classification.publisher}`);
+        if (typeof data.classification.is_lolbin === "boolean") lines.push(`LOLBin: ${data.classification.is_lolbin ? "Yes" : "No"}`);
+        if (data.classification.risk_level) lines.push(`Risk level: ${data.classification.risk_level}`);
+        if (data.classification.expected_parent) lines.push(`Expected parent: ${data.classification.expected_parent}`);
       }
+
+      if (data.intel) {
+        lines.push(`\nNormal behavior:\n${data.intel.normal_behavior || "N/A"}`);
+        lines.push(`\nSuspicious indicators:\n${data.intel.suspicious_indicators || "N/A"}`);
+        lines.push(`\nAbuse patterns:\n${data.intel.abuse_patterns || "N/A"}`);
+        lines.push(`\nDetection guidance:\n${data.intel.detection_guidance || "N/A"}`);
+        if (data.intel.false_positive_notes) lines.push(`\nFalse positive notes:\n${data.intel.false_positive_notes}`);
+        if (Array.isArray(data.intel.mitre_techniques) && data.intel.mitre_techniques.length) {
+          lines.push(`\nMITRE techniques: ${data.intel.mitre_techniques.join(", ")}`);
+        }
+      }
+
+      if (data.executions) {
+        lines.push(`\nExecutions:`);
+        if (data.executions.total) lines.push(`Total: ${data.executions.total}`);
+        if (data.executions.confidence) lines.push(`Confidence: ${data.executions.confidence}`);
+      }
+
+      if (data.parents?.top?.length) {
+        lines.push(`\nTop parents:`);
+        data.parents.top.slice(0, 5).forEach((item) => {
+          lines.push(`- ${item.name}: ${item.count}${item.percentage ? ` (${item.percentage}%)` : ""}`);
+        });
+      }
+
+      if (data.children?.top?.length) {
+        lines.push(`\nTop children:`);
+        data.children.top.slice(0, 5).forEach((item) => {
+          lines.push(`- ${item.name}: ${item.count}`);
+        });
+      }
+
+      if (data.paths?.top?.length) {
+        lines.push(`\nTop paths:`);
+        data.paths.top.slice(0, 5).forEach((item) => {
+          lines.push(`- ${item.path}: ${item.count}${item.percentage ? ` (${item.percentage}%)` : ""}`);
+        });
+      }
+
+      return lines.join("\n");
     }
-  
-    if (data.executions) {
-      lines.push(`\nExecutions:`);
-      if (data.executions.total) lines.push(`Total: ${data.executions.total}`);
-      if (data.executions.confidence) lines.push(`Confidence: ${data.executions.confidence}`);
-    }
-  
-    if (data.parents?.top?.length) {
-      lines.push(`\nTop parents:`);
-      data.parents.top.slice(0, 5).forEach((item) => {
-        lines.push(`- ${item.name}: ${item.count}${item.percentage ? ` (${item.percentage}%)` : ""}`);
-      });
-    }
-  
-    if (data.children?.top?.length) {
-      lines.push(`\nTop children:`);
-      data.children.top.slice(0, 5).forEach((item) => {
-        lines.push(`- ${item.name}: ${item.count}`);
-      });
-    }
-  
-    if (data.paths?.top?.length) {
-      lines.push(`\nTop paths:`);
-      data.paths.top.slice(0, 5).forEach((item) => {
-        lines.push(`- ${item.path}: ${item.count}${item.percentage ? ` (${item.percentage}%)` : ""}`);
-      });
-    }
-  
-    return lines.join("\n");
-  }
+
     async function sendMessage(message) {
       addMessage("user", message);
       input.value = "";
@@ -312,7 +328,7 @@
         } else {
           rockyAnswer = formatRockyJson(data);
         }
-        
+
         addMessage("assistant", rockyAnswer);
 
       } catch (error) {
