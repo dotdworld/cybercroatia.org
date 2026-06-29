@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="hr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>CyberCroatia</title>
 
-  <!-- Open Graph / Social meta -->
-  <meta property="og:title" content="CyberCroatia – Zajednica za cyber prijetnje">
-  <meta property="og:description" content="Zajednica za razmjenu IOC i IOA podataka. Sudjeluj i ojačaj digitalnu obranu Hrvatske.">
+  <meta property="og:title" content="CyberCroatia – Cyber Threat Intelligence Community">
+  <meta property="og:description" content="A community for sharing IOC and IOA data. Contribute and help strengthen digital defense.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://cybercroatia.org/">
   <meta property="og:image" content="https://cybercroatia.org/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="CyberCroatia – Zajednica za cyber prijetnje">
+  <meta property="og:image:alt" content="CyberCroatia – Cyber Threat Intelligence Community">
   <meta name="twitter:card" content="summary_large_image">
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -22,13 +22,14 @@
 
 <body class="bg-gray-950 text-gray-100 font-sans">
 
-  <!-- Navigacija -->
   <header class="border-b border-gray-800">
     <nav class="container mx-auto flex flex-wrap justify-between items-center p-4">
       <a href="index.html" class="text-2xl font-bold text-blue-500">CyberCroatia</a>
+
       <button class="block md:hidden text-gray-300 focus:outline-none" id="menuToggle">
         ☰
       </button>
+
       <ul id="menu" class="hidden md:flex space-x-6 text-sm w-full md:w-auto mt-4 md:mt-0">
         <li><a href="index.html" class="text-blue-400 block py-2 md:py-0">Home</a></li>
         <li><a href="upload.html" class="hover:text-blue-400 block py-2 md:py-0">Upload</a></li>
@@ -40,53 +41,57 @@
     </nav>
   </header>
 
-  <!-- Hero sekcija -->
   <section class="container mx-auto text-center py-20 px-6 sm:px-8 md:px-12 lg:px-16">
     <h1 class="text-4xl sm:text-5xl font-bold mb-6 text-white leading-tight">
-      Zajednica za razmjenu cyber prijetnji
+      Cyber Threat Intelligence Community
     </h1>
+
     <p class="text-gray-400 mb-10 text-base sm:text-lg max-w-2xl mx-auto">
-      Budi dio zajednice. Sudjeluj u dijeljenju IOC i IOA podataka.<br />
-      Zajedno možemo ojačati digitalnu obranu Hrvatske.
+      Be part of the community. Share IOC and IOA data.<br />
+      Together, we can strengthen digital defense.
     </p>
+
     <a href="upload.html" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold text-sm sm:text-base">
-      Pošalji IOC/IOA
+      Submit IOC/IOA
     </a>
   </section>
 
-  <!-- Zadnji dodani IOC (dinamički) -->
   <section class="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16 py-16">
-    <h2 class="text-2xl sm:text-3xl font-semibold mb-8 text-center sm:text-left">Zadnji dodani IOC</h2>
+    <h2 class="text-2xl sm:text-3xl font-semibold mb-8 text-center sm:text-left">
+      Latest Added IOC
+    </h2>
 
-    <!-- Dinamički popis – puni ga script.js -->
     <div id="recentIoc" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       <div id="recentIocFallback"
            class="bg-gray-900 p-6 rounded-xl border border-gray-800 text-gray-500 text-center">
-        Učitavam najnovije indikatore…
+        Loading latest indicators...
       </div>
     </div>
 
-    <!-- Link na cijeli pregled -->
     <div class="mt-8 text-center sm:text-left">
-      <a href="browse.html" class="text-blue-400 hover:text-blue-300 text-sm underline">Pogledaj sve →</a>
+      <a href="browse.html" class="text-blue-400 hover:text-blue-300 text-sm underline">
+        View all →
+      </a>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="border-t border-gray-800 text-center text-gray-500 py-8 text-sm px-4">
     <p>© 2025 CyberCroatia.org | Cyber Threat Intelligence Community</p>
     <p class="mt-2">
-      <a href="https://www.leonoramilisa.com" target="_blank" class="hover:text-blue-400">leonoramilisa.com</a>
+      <a href="https://www.leonoramilisa.com" target="_blank" class="hover:text-blue-400">
+        leonoramilisa.com
+      </a>
     </p>
   </footer>
 
-  <!-- Skripta za mobilni meni -->
   <script>
     const menuBtn = document.getElementById("menuToggle");
     const menu = document.getElementById("menu");
+
     menuBtn?.addEventListener("click", () => {
       menu.classList.toggle("hidden");
     });
   </script>
+
 </body>
 </html>
